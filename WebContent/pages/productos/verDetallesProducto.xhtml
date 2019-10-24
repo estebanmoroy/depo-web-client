@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<body> 
+	<h:form>
+		<h:messages />
+		<label class="attibute-title">Nombre</label>
+		<h:outputLabel for="nombreProducto" value="#{productoManagedBean.producto.nombre}" />
+		<br />
+		<label class="attibute-title">Código</label>
+		<h:outputLabel for="codigoProducto" value="#{productoManagedBean.producto.codigo}" />
+		<br />
+		<label class="attibute-title">Stock Total</label>
+		<h:outputLabel for="stockTotalProducto" value="#{productoManagedBean.producto.stockTotal}" />
+		<br />
+		<label class="attibute-title">Stock Mínimo</label>
+		<h:outputLabel for="stockMinimoProducto" value="#{productoManagedBean.producto.stockMinimo}" />
+		<br />
+		<label class="attibute-title">Segmentación</label>
+		<h:outputLabel for="segmentacionProducto" value="#{productoManagedBean.producto.segmentacion}" />
+		<br />
+		<label class="attibute-title">Peso</label>
+		<h:outputLabel for="pesoProducto" value="#{productoManagedBean.producto.peso}" />
+		<br />
+		<label class="attibute-title">Estiba</label>
+		<h:outputLabel for="estibaProducto" value="#{productoManagedBean.producto.estiba}" />
+		<br />
+		<label class="attibute-title">Volumen</label>
+		<h:outputLabel for="volumenProducto" value="#{productoManagedBean.producto.volumen}" />
+		<br />
+		<h:inputHidden value="#{productoManagedBean.producto.id}" />
+		<h:panelGrid columns="2">
+			<h:commandButton action="#{productoManagedBean.actualizarProductoStart()}" value="Editar">
+				<f:setPropertyActionListener target="#{productoManagedBean.producto}" value="#{producto}"/>
+			</h:commandButton>
+			<h:commandButton action="#{productoManagedBean.eliminarProductoStart()}" value="Eliminar">
+				<f:setPropertyActionListener target="#{productoManagedBean.producto}" value="#{producto}"/>
+			</h:commandButton>
+		</h:panelGrid>
+	</h:form>
+</body> 
+</html>

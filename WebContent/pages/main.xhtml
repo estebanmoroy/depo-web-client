@@ -1,0 +1,20 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<h:body> 
+	<h1>Funciona Pog</h1>
+	<h:panelGrid>
+		<h:outputLabel value="Bienvenido #{usuarioManagedBean.getUsuario().nombre}" />
+	</h:panelGrid>
+	<h:form>
+		<h:commandLink action="productos/mostrarTodosLosProductos" value="Productos" /> <br />		
+		<h:commandLink action="familias/mostrarTodasLasFamilias" value="Familias" /> <br />
+		<h:commandLink action="productos/mostrarTodosLosLotes" value="Lotes" /> <br />				
+		<h:commandLink action="#{usuarioManagedBean.logOut}" value="Logout" />	
+	</h:form>
+</h:body> 
+</html>

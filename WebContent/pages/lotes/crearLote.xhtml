@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<body> 
+	<h:form>
+		<h:messages />
+		<h2>Ingresar un nuevo Lote</h2>
+		<p class="attribute-title">Código</p>
+        <h:inputText id="codigoLote" value="#{loteManagedBean.lote.codigo}" 
+            required="true" requiredMessage="El campo código es requerido"/>
+        <br />
+        <p class="attribute-title">Producto</p>
+        <!-- TODO ComboBox para seleccionar Productos-->
+        <h:inputText id="productoLote" value="#{loteManagedBean.lote.producto}" 
+            required="true" requiredMessage="El campo producto es requerido"/>
+        <br />
+        <p class="attribute-title">Cantidad</p>
+        <h:inputText id="cantidadLote" value="#{loteManagedBean.lote.cantidad}" 
+            required="true" requiredMessage="El campo cantidad es requerido">
+            <f:convertNumber />
+		</h:inputText>
+        <br />
+        <p class="attribute-title">Cantidad</p>
+        <h:inputText id="cantidadLote" value="#{loteManagedBean.lote.cantidad}" 
+            required="true" requiredMessage="El campo cantidad es requerido">
+            <f:convertNumber />
+		</h:inputText>
+        <br />
+        <p class="attribute-title">Fecha de Elaboración</p>
+        <h:inputText id="fechaElaboracionLote" value="#{loteManagedBean.lote.fechaElaboracion}" 
+            required="true" requiredMessage="El campo Fecha de Elaboracion es requerido">
+            <!-- Agregar Date Picker-->
+        </h:inputText>
+        <p class="attribute-title">Fecha de Vencimiento</p>
+        <h:inputText id="fechaVencimientoLote" value="#{loteManagedBean.lote.fechaVencimiento}" 
+            required="true" requiredMessage="El campo Fecha de Vencimiento es requerido">
+            <!-- Agregar Date Picker-->
+		</h:inputText>
+        <br />
+        <p class="attribute-title">Precio</p>
+        <h:inputText id="precioLote" value="#{loteManagedBean.lote.precio}" 
+            required="true" requiredMessage="El campo Precio es requerido">
+            <f:convertNumber />
+		</h:inputText>
+        <br />
+		<h:panelGrid columns="2">
+			<h:commandButton action="#{loteManagedBean.crearLoteEnd()}" value="Confirmar" />
+			<h:commandButton action="mostrarTodosLosLotes" value="Cancelar" immediate="true"/>
+		</h:panelGrid>
+	</h:form>
+
+</body> 
+</html>

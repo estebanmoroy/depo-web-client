@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<body> 
+	<!-- No funciona porque el campo Familia no puede ser nulo -->
+	<!-- TODO: Hacer combobox para seleccionar familia -->
+	<h:form>
+		<h:messages />
+		<h2>Ingresar un nuevo producto</h2>
+		<p class="attribute-title">Nombre</p>
+		<h:inputText id="nombreProducto" value="#{productoManagedBean.producto.nombre}"
+			required="true" requiredMessage="El campo Nombre es requerido"/>
+		<br />
+		<p class="attribute-title">Código</p>
+		<h:inputText id="codigoProducto" value="#{productoManagedBean.producto.codigo}"
+			required="true" requiredMessage="El campo Codigo es requerido"/>
+		<br />
+		<p class="attribute-title">Stock Total</p>
+		<h:inputText id="stockTotalProducto" value="#{productoManagedBean.producto.stockTotal}"
+			required="true" requiredMessage="El campo Stock Total es requerido"/>
+		<br />
+		<p class="attribute-title">Stock Mínimo</p>
+		<h:inputText id="stockMinimoProducto" value="#{productoManagedBean.producto.stockMinimo}"
+			required="true" requiredMessage="El campo Stock Mínimo es requerido">
+			<f:convertNumber />
+		</h:inputText>
+		<br />
+		<p class="attribute-title">Segmentación</p>
+		<h:inputText id="segmentacionProducto" value="#{productoManagedBean.producto.segmentacion}"
+			required="true" requiredMessage="El campo Segmentación es requerido"/>
+		<br />
+		<p class="attribute-title">Peso</p>
+		<h:inputText id="pesoProducto" value="#{productoManagedBean.producto.peso}"
+			required="true" requiredMessage="El campo Peso es requerido">
+			<f:convertNumber />
+		</h:inputText>
+		<br />
+		<p class="attribute-title">Estiba</p>
+		<h:inputText id="estibaProducto" value="#{productoManagedBean.producto.estiba}"
+			required="true" requiredMessage="El campo Estiba es requerido"/>
+		<br />
+		<p class="attribute-title">Volumen</p>
+		<h:inputText id="volumenProducto" value="#{productoManagedBean.producto.volumen}"
+			required="true" requiredMessage="El campo Volumen es requerido">
+			<f:convertNumber />
+		</h:inputText>
+		<br />
+		<h:panelGrid columns="2">
+			<h:commandButton action="#{productoManagedBean.crearProductoEnd()}" value="Confirmar" />
+			<h:commandButton action="mostrarTodosLosProductos" value="Cancelar" immediate="true"/>
+		</h:panelGrid>
+	</h:form>
+</body> 
+</html>
