@@ -4,43 +4,99 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"> 
 
-<h:head></h:head> 
+<h:head>
+	<title>DEPO - Login</title>
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet" />
+	<h:outputStylesheet name="css/reset.css"></h:outputStylesheet>
+	<h:outputStylesheet name="css/styles.css"></h:outputStylesheet>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet" />
+</h:head> 
 <body> 
 	<h:messages/>
 	<h:form>
-		<h:dataTable value="#{productoManagedBean.obtenerTodosLosProductos()}" var="producto">
-			<h:column>
-				<f:facet name="header">Código</f:facet>
-				#{producto.codigo}
-			</h:column>
-			<h:column>
-				<f:facet name="header">Nombre</f:facet>
-				#{producto.nombre}
-			</h:column>
-			<h:column>
-				<f:facet name="header">Familia</f:facet>
-				#{producto.familia.nombre}
-			</h:column>
-			<h:column>
-				<f:facet name="header">Stock Total</f:facet>
-				#{producto.stockTotal}
-			</h:column>
-			<h:column>
-				<h:panelGrid columns="4">
-					<h:inputHidden value="#{producto.id}"/>
-					<h:commandButton action="#{productoManagedBean.verDetallesProducto()}" value="Ver Detalles">
-						<f:setPropertyActionListener target="#{productoManagedBean.producto}" value="#{producto}"/>
-					</h:commandButton>
-					<h:commandButton action="#{productoManagedBean.actualizarProductoStart()}" value="Editar">
-						<f:setPropertyActionListener target="#{productoManagedBean.producto}" value="#{producto}"/>
-					</h:commandButton>
-					<h:commandButton action="#{productoManagedBean.eliminarProductoStart()}" value="Eliminar">
-						<f:setPropertyActionListener target="#{productoManagedBean.producto}" value="#{producto}"/>
-					</h:commandButton>		
-				</h:panelGrid>
-			</h:column>
-		</h:dataTable>
-		
+		<div class="grid-container">
+			<nav class="sidebar">
+	            <div class="logo">
+					<h:graphicImage name="img/depo-logo.png" class="depo-logo" />
+	            </div>
+	            <ul class="nav-group-inicio">
+	                <li class="nav-item">
+	                    <i class="material-icons-outlined">home</i>
+	                    <h:commandLink action="main.xhtml" value="Inicio" class="nav-item-text" />
+	                </li>
+	            </ul>
+	            <ul class="nav-group-productos">
+	                <div class="nav-group-title">Productos</div>
+	                <li class="nav-item nav-item-selected">
+	                    <i class="material-icons-outlined">category</i>
+	                    <h:commandLink action="productos/mostrarTodosLosProductos" value="Productos" class="nav-item-text" />
+	                </li>
+	                <li class="nav-item">
+	                    <i class="material-icons-outlined">widgets</i>
+	                    <h:commandLink action="productos/mostrarTodosLosLotes" value="Lotes" class="nav-item-text" />
+	                </li>
+	                <li class="nav-item">
+	                    <i class="material-icons-outlined">local_offer</i>
+	                    <h:commandLink action="familias/mostrarTodasLasFamilias" value="Familias" class="nav-item-text" />
+	                </li>
+	            </ul>
+	            <ul class="nav-group-personal">
+	                <div class="nav-group-title">Personal</div>
+	                <li class="nav-item">
+	                    <i class="material-icons-outlined">account_circle</i>
+	                    <h:commandLink action="usuario/Perfil" value="Perfil" class="nav-item-text" />
+	                </li>
+	                <li class="nav-item">
+	                    <i class="material-icons-outlined">exit_to_app</i>
+	                    <h:commandLink action="#{usuarioManagedBean.logOut}" value="Cerrar Sesión" class="nav-item-text" />
+	                </li>
+	            </ul>
+	        </nav>
+		    <div class="tab-content">
+		        <h2 class="page-title">Productos</h2>
+		        <div class="searchbar">
+		            <div class="searchbar-container">
+		                <h:inputText value="Error cuando queda vacio - Solucionar" type="search" name="searchbar" class="searchbar" placeholder="Buscar"/>
+		                <i class="material-icons-outlined">search</i>
+		            </div>
+		        </div>
+		        <div class="content-container">
+		        	<h:dataTable value="#{productoManagedBean.obtenerTodosLosProductos()}" var="producto">
+						<h:column>
+							<f:facet name="header">Código</f:facet>
+							#{producto.codigo}
+						</h:column>
+						<h:column>
+							<f:facet name="header">Nombre</f:facet>
+							#{producto.nombre}
+						</h:column>
+						<h:column>
+							<f:facet name="header">Familia</f:facet>
+							#{producto.familia.nombre}
+						</h:column>
+						<h:column>
+							<f:facet name="header">Stock Total</f:facet>
+							#{producto.stockTotal}
+						</h:column>
+						<h:column>
+								<h:inputHidden value="#{producto.id}"/>
+								<h:commandLink action="#{productoManagedBean.verDetallesProducto()}" value="" class="boton medium-emphasis" title="Ver Detalles">
+									<i class="material-icons-outlined">list_alt</i>
+									<f:setPropertyActionListener target="#{productoManagedBean.producto}" value="#{producto}"/>
+								</h:commandLink>
+								<h:commandLink action="#{productoManagedBean.actualizarProductoStart()}" class="boton low-emphasis" title="Editar">
+									<i class="material-icons-outlined">edit</i>
+									<f:setPropertyActionListener target="#{productoManagedBean.producto}" value="#{producto}"/>
+								</h:commandLink>
+								<h:commandLink action="#{productoManagedBean.eliminarProductoStart()}" class="boton low-emphasis" title="Eliminar">
+									<i class="material-icons-outlined">delete</i>
+									<f:setPropertyActionListener target="#{productoManagedBean.producto}" value="#{producto}"/>
+								</h:commandLink>
+						</h:column>
+					</h:dataTable>
+				</div>
+			</div>
+	    </div>
 		<h:commandButton action="#{productoManagedBean.crearProductoStart()}" value="Agregar" />
 	</h:form>
 

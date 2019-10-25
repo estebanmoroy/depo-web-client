@@ -4,17 +4,65 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"> 
 
-<h:head></h:head> 
-<h:body> 
-	<h1>Funciona Pog</h1>
-	<h:panelGrid>
-		<h:outputLabel value="Bienvenido #{usuarioManagedBean.getUsuario().nombre}" />
-	</h:panelGrid>
-	<h:form>
-		<h:commandLink action="productos/mostrarTodosLosProductos" value="Productos" /> <br />		
-		<h:commandLink action="familias/mostrarTodasLasFamilias" value="Familias" /> <br />
-		<h:commandLink action="productos/mostrarTodosLosLotes" value="Lotes" /> <br />				
-		<h:commandLink action="#{usuarioManagedBean.logOut}" value="Logout" />	
-	</h:form>
-</h:body> 
+	<h:head>
+			<title>DEPO - Inicio</title>
+		    <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet" />
+			<h:outputStylesheet name="css/reset.css"></h:outputStylesheet>
+			<h:outputStylesheet name="css/styles.css"></h:outputStylesheet>
+			<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet" />
+	</h:head> 
+	<h:body>
+		<h:form>
+			<div class="grid-container">
+				<nav class="sidebar">
+		            <div class="logo">
+						<h:graphicImage name="img/depo-logo.png" class="depo-logo" />
+		            </div>
+		            <ul class="nav-group-inicio">
+		                <li class="nav-item nav-item-selected">
+		                    <i class="material-icons-outlined">home</i>
+		                    <h:commandLink action="main" value="Inicio" class="nav-item-text" />
+		                </li>
+		            </ul>
+		            <ul class="nav-group-productos">
+		                <div class="nav-group-title">Productos</div>
+		                <li class="nav-item">
+		                    <i class="material-icons-outlined">category</i>
+		                    <h:commandLink action="productos/mostrarTodosLosProductos" value="Productos" class="nav-item-text" />
+		                </li>
+		                <li class="nav-item">
+		                    <i class="material-icons-outlined">widgets</i>
+		                    <h:commandLink action="productos/mostrarTodosLosLotes" value="Lotes" class="nav-item-text" />
+		                </li>
+		                <li class="nav-item">
+		                    <i class="material-icons-outlined">local_offer</i>
+		                    <h:commandLink action="familias/mostrarTodasLasFamilias" value="Familias" class="nav-item-text" />
+		                </li>
+		            </ul>
+		            <ul class="nav-group-personal">
+		                <div class="nav-group-title">Personal</div>
+		                <li class="nav-item">
+		                    <i class="material-icons-outlined">account_circle</i>
+		                    <h:commandLink action="usuario/Perfil" value="Perfil" class="nav-item-text" />
+		                </li>
+		                <li class="nav-item">
+		                    <i class="material-icons-outlined">exit_to_app</i>
+		                    <h:commandLink action="#{usuarioManagedBean.logOut}" value="Cerrar Sesión" class="nav-item-text" />
+		                </li>
+		            </ul>
+		        </nav>
+			    <div class="tab-content">
+			        <h2 class="page-title">Inicio</h2>
+			        <div class="searchbar">
+			            <div class="searchbar-container">
+			                <h:inputText value="Error cuando queda vacio - Solucionar" type="search" name="searchbar" class="searchbar" placeholder="Buscar"/>
+			                <i class="material-icons-outlined">search</i>
+			            </div>
+			        </div>
+			        <div class="content-container">
+					</div>
+				</div>
+		    </div>
+		</h:form>
+	</h:body> 
 </html>

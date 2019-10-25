@@ -121,6 +121,8 @@ body{
 }
 
 .nav-item-text{
+	color: unset;
+	text-decoration: none;
     padding-left: 5px;
     vertical-align: middle;
 }
@@ -174,7 +176,7 @@ input.texto:focus{
     color: var(--rojo-500);
 }
 
-input#searchbar{
+input.searchbar{
     width: 93%;
     margin: 0 auto;
     height: 50px;
@@ -210,7 +212,8 @@ th{
     color: var(--gris-100);
     text-transform: uppercase;
     padding: 16px 0 8px 0;
-    min-width: 100px;
+    width: 50px;
+    min-width: 50px;
 }
 th:first-child{
     border-radius:10px 0 0 0;
@@ -218,9 +221,8 @@ th:first-child{
 th:last-child{
     border-radius:0 10px 0 0;
 }
-th.no-text-content{
-    width: 50px;
-    min-width: 50px;
+.no-text-content{
+    
 }
 
 tr, td{
@@ -232,19 +234,21 @@ tr, td{
     border-bottom: 1px solid var(--gris-400);
 }
 
-input.boton{
+.boton{
 	width: unset;
     border: none;
     border-radius: 25px;
     padding: 6px;
     cursor: pointer;
     transition: 0.4s ease;
+	color: unset;
+	text-decoration: none;
 }
-input.boton:hover{
+.boton:hover{
     background-color: var(--gris-300);
 }
 
-input.high-emphasis-wide{
+.high-emphasis-wide{
     background-color: var(--indigo-500);
     color: var(--gris-100);
     padding: 12px 32px;
@@ -253,15 +257,15 @@ input.high-emphasis-wide{
     text-transform: uppercase;
 }
 
-input.high-emphasis-wide:hover{
+.high-emphasis-wide:hover{
     background-color: var(--indigo-700);
 }
 
-input.medium-emphasis{
+.medium-emphasis{
     color: var(--indigo-500);
 }
 
-input.medium-emphasis-wide{
+.medium-emphasis-wide{
     color: var(--indigo-500);
     font-size: 16px;
     text-transform: uppercase;
@@ -272,17 +276,17 @@ input.medium-emphasis-wide{
     margin-top: 30px;
 }
 
-input.medium-emphasis-wide:hover{
+.medium-emphasis-wide:hover{
     background-color: var(--indigo-500);
     color: var(--gris-100);
     border-color: var(--indigo-500);
 }
 
-input.low-emphasis{
+.low-emphasis{
     color: var(--gris-800);
 }
 
-input.low-emphasis-wide{
+.low-emphasis-wide{
     color: var(--gris-800);
     font-size: 16px;
     text-transform: uppercase;
@@ -293,15 +297,15 @@ input.low-emphasis-wide{
     margin-top: 30px;
 }
 
-input.low-emphasis-wide:hover{
+.low-emphasis-wide:hover{
 }
 
-input.delete-button{
+.delete-button{
     color: var(--rojo-500);
     border-color: var(--rojo-300);
 }
 
-input.delete-button:hover{
+.delete-button:hover{
     background-color: var(--rojo-500);
     color: var(--gris-100);
     border-color: var(--rojo-500);
