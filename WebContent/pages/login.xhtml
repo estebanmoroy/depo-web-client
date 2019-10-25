@@ -6,16 +6,37 @@
 
 	<h:head>
 		<title>DEPO - Login</title>
+	    <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet" />
+		<h:outputStylesheet name="css/reset.css"></h:outputStylesheet>
+		<h:outputStylesheet name="css/styles.css"></h:outputStylesheet>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet" />
 	</h:head> 
-	<h:body> 
+	<h:body>
+	<div class="form-container">
+		<h:form class="login-form">
+			<div class="logo-form">
+				<h:graphicImage name="img/depo-logo.png" class="depo-logo" />
+			</div>
+			<div class="input-wrapper">
+				<label for="usuario" class="login-label">
+					Usuario
+				</label>
+				<h:inputText value="#{usuarioManagedBean.nombreAcceso}" class="texto"/>
+				<label for="contrasena" class="login-label">
+					Contraseña
+				</label>		
+				<h:inputSecret value="#{usuarioManagedBean.contrasena}" class="texto"/>
+				<h:messages class="mensaje-error"/>				
+			</div>
+			<div class="button-wrapper">
+				<h:commandButton value="Ingresar" action="#{usuarioManagedBean.autenticar}" class="boton high-emphasis-wide"/>				
+			</div>
+		</h:form>
+	</div>
 		<h:form>
-			Usuario: <h:inputText value="#{usuarioManagedBean.nombreAcceso}" />
 			<br />
-			Contraseña: <h:inputSecret value="#{usuarioManagedBean.contrasena}" />
 			<br />
-			<h:commandButton value="Ingresar" action="#{usuarioManagedBean.autenticar}" />
 			<br />
-			<h:messages/>
 		</h:form>
 	</h:body> 
 </html>
