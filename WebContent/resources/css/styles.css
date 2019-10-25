@@ -121,6 +121,8 @@ body{
 }
 
 .nav-item-text{
+	color: unset;
+	text-decoration: none;
     padding-left: 5px;
     vertical-align: middle;
 }
@@ -174,7 +176,7 @@ input.texto:focus{
     color: var(--rojo-500);
 }
 
-input#searchbar{
+input.searchbar{
     width: 93%;
     margin: 0 auto;
     height: 50px;
