@@ -64,7 +64,13 @@
 	            </ul>
 	        </nav>
 		    <div class="tab-content">
-		        <h2 class="page-title">Familias</h2>
+		    <div class="add-button-wrapper">
+	                <h2>Familias</h2>
+					<h:commandLink action="#{familiaManagedBean.crearFamiliaStart()}" class="add-button high-emphasis-wide boton">
+						<i class="material-icons-outlined">add</i>
+		                <span>Agregar</span>
+					</h:commandLink>
+	            </div>
 		        <div class="searchbar">
 		            <div class="searchbar-container">
 		                <h:inputText value="Error cuando queda vacio - Solucionar" type="search" name="searchbar" class="searchbar" placeholder="Buscar"/>
@@ -109,7 +115,6 @@
 				</div>
 			</div>
 	    </div>
-	    <h:commandButton action="#{familiaManagedBean.crearFamiliaStart()}" value="Agregar" />	
 	</h:form>
 	
 	
