@@ -19,6 +19,52 @@
 						<h:graphicImage name="img/depo-logo.png" class="depo-logo" />
 		            </div>
 		            <ul class="nav-group-inicio">
+		                <h:commandLink action="main">
+		                	<div class="nav-item nav-item-selected">
+			                    <i class="material-icons-outlined">home</i>
+			                    <span class="nav-item-text">Inicio</span>
+		                	</div>
+		                </h:commandLink>
+		            </ul>
+		            <ul class="nav-group-productos">
+		                <div class="nav-group-title">Productos</div>
+		                <h:commandLink action="mostrarTodosLosProductos">
+		                	<div class="nav-item">
+			                    <i class="material-icons-outlined">category</i>
+			                    <span class="nav-item-text">Productos</span>
+		                	</div>
+		                </h:commandLink>
+		                <h:commandLink action="mostrarTodosLosLotes">
+		                	<div class="nav-item">
+			                    <i class="material-icons-outlined">widgets</i>
+			                    <span class="nav-item-text">Lotes</span>
+		                	</div>
+		                </h:commandLink>
+		                <h:commandLink action="mostrarTodasLasFamilias">
+		                	<div class="nav-item">
+			                    <i class="material-icons-outlined">local_offer</i>
+			                    <span class="nav-item-text">Familias</span>
+		                	</div>
+		                </h:commandLink>
+		            </ul>
+		            <ul class="nav-group-personal">
+		                <div class="nav-group-title">Personal</div>
+		                <h:commandLink action="perfil">
+		                	<div class="nav-item">
+			                    <i class="material-icons-outlined">account_circle</i>
+			                    <span class="nav-item-text">Perfil</span>
+		                	</div>
+		                </h:commandLink>
+		                <h:commandLink action="#{usuarioManagedBean.logOut}">
+		                	<div class="nav-item">
+			                    <i class="material-icons-outlined">exit_to_app</i>
+			                    <span class="nav-item-text">Cerrar Sesión</span>
+		                	</div>
+		                </h:commandLink>
+		            </ul>
+		        </nav>
+			    <div class="tab-content">
+			        <h2 class="page-title">Productos</h2>
 		                <li class="nav-item nav-item-selected">
 		                    <i class="material-icons-outlined">home</i>
 		                    <h:commandLink action="main" value="Inicio" class="nav-item-text" />

@@ -52,7 +52,11 @@
     letter-spacing: inherit;
   }
   
-  /* I usually expand input and textarea to full-width */
+  a{
+  	text-decoration: none;
+  }
+  
+  /* Expand input and textarea to full-width */
   input,
   textarea {
     width: 100%;

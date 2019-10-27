@@ -94,11 +94,11 @@ body{
 }
 
 .nav-item{
-    display: inline block;
     color: var(--gris-800);
     font-weight: 600;
     font-size: 16px;
     padding: 5px;
+    margin: 2px 0;
     border-radius: 4px;
     cursor: pointer;
 }

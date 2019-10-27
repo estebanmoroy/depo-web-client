@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<body> 
+<h:messages/>
+<h:form>
+	<h:dataTable value="#{loteManagedBean.obtenerTodosLosLotes()}" var="lote">
+		<h:column>
+			<f:facet name="header">Código</f:facet>
+			#{lote.codigo}
+        </h:column>
+        <h:column>
+			<f:facet name="header">Producto</f:facet>
+			#{lote.producto.nombre}
+        </h:column>
+        <h:column>
+			<f:facet name="header">Cantidad</f:facet>
+			#{lote.cantidad}
+        </h:column>
+        <h:column>
+			<f:facet name="header">Fecha de Vencimiento</f:facet>
+			#{lote.fechaVencimiento}
+        </h:column>
+		<h:column>
+			<h:panelGrid columns="4">
+				<h:inputHidden value="#{lote.id}"/>
+				<h:commandButton action="#{loteManagedBean.verDetallesLote()}" value="Ver Detalles">
+					<f:setPropertyActionListener target="#{loteManagedBean.lote}" value="#{lote}"/>
+				</h:commandButton>
+				<h:commandButton action="#{loteManagedBean.actualizarLoteStart()}" value="Editar">
+					<f:setPropertyActionListener target="#{loteManagedBean.lote}" value="#{lote}"/>
+				</h:commandButton>
+				<h:commandButton action="#{loteManagedBean.eliminarLoteStart()}" value="Eliminar">
+					<f:setPropertyActionListener target="#{loteManagedBean.lote}" value="#{lote}"/>
+				</h:commandButton>		
+			</h:panelGrid>
+		</h:column>
+	</h:dataTable>
+	
+	<h:commandButton action="#{loteManagedBean.crearLoteStart()}" value="Agregar" />
+</h:form>
+
+</body> 
+</html>
