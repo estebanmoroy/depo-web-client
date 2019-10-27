@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<body> 
+	<h:form>
+		<h:messages />
+		<h2>Ingresar una nueva familia</h2>
+		<label class="attibute-title">Nombre</label>
+		<h:inputText id="nombreFamilia" value="#{familiaManagedBean.familia.nombre}" 
+			required="true" requiredMessage="El campo nombre es requerido"/>
+		<br />
+		<label class="attibute-title">Código</label>
+		<h:inputText id="codigoFamilia" value="#{familiaManagedBean.familia.codigo}" 
+			required="true" requiredMessage="El campo codigo es requerido"/>
+		<br />
+		<label class="attibute-title">Descripción</label>
+		<h:inputText id="descripcionFamilia" value="#{familiaManagedBean.familia.descripcion}" 
+			required="true" requiredMessage="El campo descripcion es requerido"/>
+		<br />
+		<label class="attibute-title">Incompatible con</label>
+		<h:inputText id="incompatibleFamilia" 
+			value="#{familiaManagedBean.familia.incompatible}"/>
+		<br />
+		<h:panelGrid columns="2">
+			<h:commandButton action="#{familiaManagedBean.crearFamiliaEnd()}" value="Confirmar" />
+			<h:commandButton action="mostrarTodasLasFamilias" value="Cancelar" immediate="true"/>
+		</h:panelGrid>
+	</h:form>
+
+</body> 
+</html>

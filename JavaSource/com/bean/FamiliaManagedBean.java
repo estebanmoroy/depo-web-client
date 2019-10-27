@@ -63,6 +63,9 @@ public class FamiliaManagedBean {
 		return familia;
 	}
 	
+	public String mostrarTodasLasFamilias() {
+		return MOSTRAR_TODOS;
+	}
 	public String verDetallesFamilia() {
 		return DETALLES;
 	}
