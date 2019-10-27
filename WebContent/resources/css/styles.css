@@ -57,11 +57,16 @@ body{
 
 .tab-content{
     padding: 0 40px;
+    max-width: 1000px;
 }
-.page-title{
+
+.add-button-wrapper{
     grid-column: contenido-inicio / contenido-final;
     grid-row: titulo-inicio / titulo-final;
     padding-top: 50px;
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
 .searchbar{
@@ -146,6 +151,11 @@ h3{
     font-size: 18px;
 }
 
+.add-button{
+	justify-self: right;
+	max-width: 185px;
+}
+
 .searchbar-container{
     max-width: 1000px;
     margin-top: 30px;
@@ -208,7 +218,7 @@ table{
 }
 
 th{
-    background-color: var(--indigo-600);
+    background-color: var(--indigo-500);
     color: var(--gris-100);
     text-transform: uppercase;
     padding: 16px 0 8px 0;
