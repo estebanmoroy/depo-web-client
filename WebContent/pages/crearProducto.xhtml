@@ -7,7 +7,7 @@
       xmlns:of="http://omnifaces.org/functions"> 
 
 <h:head>
-	<title>DEPO - Inicio</title>
+	<title>DEPO - Ingresar Nuevo Producto</title>
 	<link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet" />
 	<h:outputStylesheet name="css/reset.css"></h:outputStylesheet>
 	<h:outputStylesheet name="css/styles.css"></h:outputStylesheet>
@@ -110,10 +110,14 @@
 							<br/>
 							<h:messages class="mensaje-error"/>
 							<br/>
-							<h:panelGrid columns="2">
-								<h:commandLink action="#{productoManagedBean.crearProductoEnd()}" value="Confirmar" class="boton low-emphasis-wide"/>
-								<h:commandLink action="mostrarTodosLosProductos" value="Cancelar" immediate="true"  class="boton low-emphasis-wide"/>
-							</h:panelGrid>
+							<h:commandLink action="#{productoManagedBean.crearProductoEnd()}" class="boton medium-emphasis-wide">
+								<f:setPropertyActionListener target="#{productoManagedBean.producto}" value="#{producto}"/>
+	                        	<span class="button-text">Confirmar</span>
+							</h:commandLink>
+							<h:commandLink action="mostrarTodosLosProductos" immediate="true" class="boton medium-emphasis-wide ">
+								<f:setPropertyActionListener target="#{productoManagedBean.producto}" value="#{producto}" />
+	                       		<span class="button-text">Cancelar</span>
+							</h:commandLink>
 			        	</div>
 			        </div>
 				</div>
