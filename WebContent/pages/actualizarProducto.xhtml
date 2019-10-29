@@ -4,54 +4,124 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"> 
 
-<h:head></h:head> 
-<body> 
+<h:head>
+	<title>DEPO - Ingresar Nuevo Producto</title>
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet" />
+	<h:outputStylesheet name="css/reset.css"></h:outputStylesheet>
+	<h:outputStylesheet name="css/styles.css"></h:outputStylesheet>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet" />
+</h:head> 
+<h:body>
 	<h:form>
-		<h:messages />
-		<h2>Actualizar Producto: #{productoManagedBean.producto.nombre}</h2>
-		<h:inputHidden value="#{productoManagedBean.producto.id}" />
-		<h:inputHidden value="#{productoManagedBean.producto.codigo}" />
-		<h:inputHidden value="#{productoManagedBean.producto.stockTotal}" />
-		<p class="attribute-title">Nombre</p>
-		<h:inputText id="nombreProducto" value="#{productoManagedBean.producto.nombre}"
-			required="true" requiredMessage="El campo nombre es requerido"/>
-		<br />
-		<p class="attribute-title">Código</p>
-		<p>#{productoManagedBean.producto.codigo}</p> 
-		<br />
-		<p class="attribute-title">Stock Total</p>
-		<p>#{productoManagedBean.producto.stockTotal}</p> 
-		<br />
-		<p class="attribute-title">Stock Mínimo</p>
-		<h:inputText id="stockMinimoProducto" value="#{productoManagedBean.producto.stockMinimo}"
-			required="true" requiredMessage="El campo Stock Mínimo es requerido">
-			<f:convertNumber />
-		</h:inputText>
-		<br />
-		<p class="attribute-title">Segmentación</p>
-		<h:inputText id="segmentacionProducto" value="#{productoManagedBean.producto.segmentacion}"
-			required="true" requiredMessage="El campo Segmentación es requerido"/>
-		<br />
-		<p class="attribute-title">Peso</p>
-		<h:inputText id="pesoProducto" value="#{productoManagedBean.producto.peso}"
-			required="true" requiredMessage="El campo Peso es requerido">
-			<f:convertNumber />
-		</h:inputText>
-		<br />
-		<p class="attribute-title">Estiba</p>
-		<h:inputText id="estibaProducto" value="#{productoManagedBean.producto.estiba}"
-			required="true" requiredMessage="El campo Estiba es requerido"/>
-		<br />
-		<p class="attribute-title">Volumen</p>
-		<h:inputText id="volumenProducto" value="#{productoManagedBean.producto.volumen}"
-			required="true" requiredMessage="El campo Volumen es requerido">
-			<f:convertNumber />
-		</h:inputText>
-		<br />
-		<h:panelGrid columns="2">
-			<h:commandButton action="#{productoManagedBean.actualizarProductoEnd()}" value="Confirmar" />
-			<h:commandButton action="mostrarTodosLosProductos" value="Cancelar" immediate="true"/>
-		</h:panelGrid>
+		<div class="grid-container">
+			<nav class="sidebar">
+	            <div class="logo">
+					<h:graphicImage name="img/depo-logo.png" class="depo-logo" />
+	            </div>
+	            <ul class="nav-group-inicio">
+	                <h:commandLink action="main">
+	                	<div class="nav-item">
+		                    <i class="material-icons-outlined">home</i>
+		                    <span class="nav-item-text">Inicio</span>
+	                	</div>
+	                </h:commandLink>
+	            </ul>
+	            <ul class="nav-group-productos">
+	                <div class="nav-group-title">Productos</div>
+	                <h:commandLink action="mostrarTodosLosProductos">
+	                	<div class="nav-item nav-item-selected">
+		                    <i class="material-icons-outlined">category</i>
+		                    <span class="nav-item-text">Productos</span>
+	                	</div>
+	                </h:commandLink>
+	                <h:commandLink action="mostrarTodosLosLotes">
+	                	<div class="nav-item">
+		                    <i class="material-icons-outlined">widgets</i>
+		                    <span class="nav-item-text">Lotes</span>
+	                	</div>
+	                </h:commandLink>
+	                <h:commandLink action="mostrarTodasLasFamilias">
+	                	<div class="nav-item">
+		                    <i class="material-icons-outlined">local_offer</i>
+		                    <span class="nav-item-text">Familias</span>
+	                	</div>
+	                </h:commandLink>
+	            </ul>
+	            <ul class="nav-group-personal">
+	                <div class="nav-group-title">Personal</div>
+	                <h:commandLink action="perfil">
+	                	<div class="nav-item">
+		                    <i class="material-icons-outlined">account_circle</i>
+		                    <span class="nav-item-text">Perfil</span>
+	                	</div>
+	                </h:commandLink>
+	                <h:commandLink action="#{usuarioManagedBean.logOut}">
+	                	<div class="nav-item">
+		                    <i class="material-icons-outlined">exit_to_app</i>
+		                    <span class="nav-item-text">Cerrar Sesión</span>
+	                	</div>
+	                </h:commandLink>
+	            </ul>
+	        </nav>
+		    <div class="tab-content">
+		       <div class="add-button-wrapper">
+	                <h2>Actualizar Producto</h2>
+	            </div>
+		        <div class="content-container">
+			        <div class="card-container">
+			        	<div class="card-form-container">
+			        		<h:inputHidden value="#{productoManagedBean.producto.id}" />
+							<h:inputHidden value="#{productoManagedBean.producto.codigo}" />
+							<h:inputHidden value="#{productoManagedBean.producto.stockTotal}" />
+			        		<p class="attribute-title">Nombre</p>
+			        		<h:inputText id="nombreProducto" value="#{productoManagedBean.producto.nombre}"
+							required="true" requiredMessage="El campo nombre es requerido" class="texto"/>
+							<p class="attribute-title">Código</p>
+							<p class="attribute-value">#{productoManagedBean.producto.codigo}</p> 
+							<p class="attribute-title">Stock Total</p>
+							<p class="attribute-value">#{productoManagedBean.producto.stockTotal}</p>
+							<p class="attribute-title">Stock Mínimo</p>
+							<h:inputText id="stockMinimoProducto" value="#{productoManagedBean.producto.stockMinimo}"
+								required="true" requiredMessage="El campo Stock Mínimo es requerido" class="texto">
+								<f:convertNumber />
+							</h:inputText>
+							<p class="attribute-title">Segmentación</p>
+							<h:inputText id="segmentacionProducto" value="#{productoManagedBean.producto.segmentacion}"
+								required="true" requiredMessage="El campo Segmentación es requerido" class="texto"/>
+							<p class="attribute-title">Peso</p>
+							<h:inputText id="pesoProducto" value="#{productoManagedBean.producto.peso}"
+								required="true" requiredMessage="El campo Peso es requerido" class="texto">
+								<f:convertNumber />
+							</h:inputText>
+							<p class="attribute-title">Estiba</p>
+							<h:inputText id="estibaProducto" value="#{productoManagedBean.producto.estiba}"
+								required="true" requiredMessage="El campo Estiba es requerido" class="texto"/>
+							<p class="attribute-title">Volumen</p>
+							<h:inputText id="volumenProducto" value="#{productoManagedBean.producto.volumen}"
+								required="true" requiredMessage="El campo Volumen es requerido" class="texto">
+								<f:convertNumber />
+							</h:inputText>
+							<p class="attribute-title">Familia</p>
+							<h:selectOneMenu id="familia" value="#{productoManagedBean.producto.familia}" converter="omnifaces.SelectItemsConverter" class="texto">
+								<f:selectItem itemLabel="Elige una" noSelectionOption="true" />
+								<f:selectItems value="#{familiaManagedBean.obtenerTodasLasFamilias()}" var="familia" itemValue="#{familia}" itemLabel="#{familia.nombre}"/>
+							</h:selectOneMenu>
+							<br/>
+							<h:messages class="mensaje-error"/>
+							<br/>
+							<h:commandLink action="#{productoManagedBean.actualizarProductoEnd()}" class="boton medium-emphasis-wide">
+								<f:setPropertyActionListener target="#{productoManagedBean.producto}" value="#{producto}"/>
+	                        	<span class="button-text">Confirmar</span>
+							</h:commandLink>
+							<h:commandLink action="mostrarTodosLosProductos" immediate="true" class="boton medium-emphasis-wide ">
+								<f:setPropertyActionListener target="#{productoManagedBean.producto}" value="#{producto}" />
+	                       		<span class="button-text">Cancelar</span>
+							</h:commandLink>
+			        	</div>
+			        </div>
+				</div>
+			</div>
+	    </div>
 	</h:form>
-</body> 
+</h:body>
 </html>
