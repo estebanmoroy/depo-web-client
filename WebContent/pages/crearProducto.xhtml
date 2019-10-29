@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"> 
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:o="http://omnifaces.org/ui"
+      xmlns:of="http://omnifaces.org/functions"> 
 
 <h:head></h:head> 
-<body> 
-	<!-- No funciona porque el campo Familia no puede ser nulo -->
-	<!-- TODO: Hacer combobox para seleccionar familia -->
+<body>
 	<h:form>
 		<h:messages />
 		<h2>Ingresar un nuevo producto</h2>
@@ -48,6 +48,10 @@
 			required="true" requiredMessage="El campo Volumen es requerido">
 			<f:convertNumber />
 		</h:inputText>
+		<h:selectOneMenu id="familia" value="#{productoManagedBean.producto.familia}" converter="omnifaces.SelectItemsConverter">
+			<f:selectItem itemLabel="Choose item" noSelectionOption="true" />
+			<f:selectItems value="#{familiaManagedBean.obtenerTodasLasFamilias()}"/>
+		</h:selectOneMenu>
 		<br />
 		<h:panelGrid columns="2">
 			<h:commandButton action="#{productoManagedBean.crearProductoEnd()}" value="Confirmar" />
