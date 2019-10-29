@@ -20,11 +20,15 @@
 --indigo-800: #4845b6;
 --indigo-900: #473c9c;
 
-
 --rojo-300: #FEB2B2;
 --rojo-400: #FC8181;
 --rojo-500: #F56565;
 --rojo-600: #E53E3E;
+
+--verde-300: #9AE6B4;
+--verde-400: #68D391;
+--verde-500: #48BB78;
+--verde-600: #38A169;
 }
 
 body{
@@ -307,15 +311,24 @@ tr, td{
 .low-emphasis-wide:hover{
 }
 
-.delete-button{
+.boton-rojo{
     color: var(--rojo-500);
     border-color: var(--rojo-300);
 }
-
-.delete-button:hover{
+.boton-rojo:hover{
     background-color: var(--rojo-500);
     color: var(--gris-100);
     border-color: var(--rojo-500);
+}
+
+.boton-verde{
+    color: var(--verde-500);
+    border-color: var(--verde-300);
+}
+.boton-verde:hover{
+    background-color: var(--verde-500);
+    color: var(--gris-100);
+    border-color: var(--verde-500);
 }
 
 .button-text{
@@ -332,7 +345,7 @@ tr, td{
 
 .card-form-container{
 	padding-top: 10px;
-	max-width: 300px;	
+	max-width: 340px;	
 }
 
 .attribute-title{
@@ -344,13 +357,13 @@ tr, td{
 }
 
 .title-name{
-    padding-top: 25px;
+    padding-top: 15px;
 }
 
 .attribute-value{
     font-size: 18px;
     font-weight: 600;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
 }
 
 .attribute-value-name{
