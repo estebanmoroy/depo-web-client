@@ -6,57 +6,119 @@
       xmlns:o="http://omnifaces.org/ui"
       xmlns:of="http://omnifaces.org/functions"> 
 
-<h:head></h:head> 
-<body>
+<h:head>
+	<title>DEPO - Inicio</title>
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet" />
+	<h:outputStylesheet name="css/reset.css"></h:outputStylesheet>
+	<h:outputStylesheet name="css/styles.css"></h:outputStylesheet>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet" />
+</h:head> 
+<h:body>
 	<h:form>
-		<h:messages />
-		<h2>Ingresar un nuevo producto</h2>
-		<p class="attribute-title">Nombre</p>
-		<h:inputText id="nombreProducto" value="#{productoManagedBean.producto.nombre}"
-			required="true" requiredMessage="El campo Nombre es requerido"/>
-		<br />
-		<p class="attribute-title">Código</p>
-		<h:inputText id="codigoProducto" value="#{productoManagedBean.producto.codigo}"
-			required="true" requiredMessage="El campo Codigo es requerido"/>
-		<br />
-		<p class="attribute-title">Stock Total</p>
-		<h:inputText id="stockTotalProducto" value="#{productoManagedBean.producto.stockTotal}"
-			required="true" requiredMessage="El campo Stock Total es requerido"/>
-		<br />
-		<p class="attribute-title">Stock Mínimo</p>
-		<h:inputText id="stockMinimoProducto" value="#{productoManagedBean.producto.stockMinimo}"
-			required="true" requiredMessage="El campo Stock Mínimo es requerido">
-			<f:convertNumber />
-		</h:inputText>
-		<br />
-		<p class="attribute-title">Segmentación</p>
-		<h:inputText id="segmentacionProducto" value="#{productoManagedBean.producto.segmentacion}"
-			required="true" requiredMessage="El campo Segmentación es requerido"/>
-		<br />
-		<p class="attribute-title">Peso</p>
-		<h:inputText id="pesoProducto" value="#{productoManagedBean.producto.peso}"
-			required="true" requiredMessage="El campo Peso es requerido">
-			<f:convertNumber />
-		</h:inputText>
-		<br />
-		<p class="attribute-title">Estiba</p>
-		<h:inputText id="estibaProducto" value="#{productoManagedBean.producto.estiba}"
-			required="true" requiredMessage="El campo Estiba es requerido"/>
-		<br />
-		<p class="attribute-title">Volumen</p>
-		<h:inputText id="volumenProducto" value="#{productoManagedBean.producto.volumen}"
-			required="true" requiredMessage="El campo Volumen es requerido">
-			<f:convertNumber />
-		</h:inputText>
-		<h:selectOneMenu id="familia" value="#{productoManagedBean.producto.familia}" converter="omnifaces.SelectItemsConverter">
-			<f:selectItem itemLabel="Choose item" noSelectionOption="true" />
-			<f:selectItems value="#{familiaManagedBean.obtenerTodasLasFamilias()}"/>
-		</h:selectOneMenu>
-		<br />
-		<h:panelGrid columns="2">
-			<h:commandButton action="#{productoManagedBean.crearProductoEnd()}" value="Confirmar" />
-			<h:commandButton action="mostrarTodosLosProductos" value="Cancelar" immediate="true"/>
-		</h:panelGrid>
+		<div class="grid-container">
+			<nav class="sidebar">
+	            <div class="logo">
+					<h:graphicImage name="img/depo-logo.png" class="depo-logo" />
+	            </div>
+	            <ul class="nav-group-inicio">
+	                <h:commandLink action="main">
+	                	<div class="nav-item">
+		                    <i class="material-icons-outlined">home</i>
+		                    <span class="nav-item-text">Inicio</span>
+	                	</div>
+	                </h:commandLink>
+	            </ul>
+	            <ul class="nav-group-productos">
+	                <div class="nav-group-title">Productos</div>
+	                <h:commandLink action="mostrarTodosLosProductos">
+	                	<div class="nav-item nav-item-selected">
+		                    <i class="material-icons-outlined">category</i>
+		                    <span class="nav-item-text">Productos</span>
+	                	</div>
+	                </h:commandLink>
+	                <h:commandLink action="mostrarTodosLosLotes">
+	                	<div class="nav-item">
+		                    <i class="material-icons-outlined">widgets</i>
+		                    <span class="nav-item-text">Lotes</span>
+	                	</div>
+	                </h:commandLink>
+	                <h:commandLink action="mostrarTodasLasFamilias">
+	                	<div class="nav-item">
+		                    <i class="material-icons-outlined">local_offer</i>
+		                    <span class="nav-item-text">Familias</span>
+	                	</div>
+	                </h:commandLink>
+	            </ul>
+	            <ul class="nav-group-personal">
+	                <div class="nav-group-title">Personal</div>
+	                <h:commandLink action="perfil">
+	                	<div class="nav-item">
+		                    <i class="material-icons-outlined">account_circle</i>
+		                    <span class="nav-item-text">Perfil</span>
+	                	</div>
+	                </h:commandLink>
+	                <h:commandLink action="#{usuarioManagedBean.logOut}">
+	                	<div class="nav-item">
+		                    <i class="material-icons-outlined">exit_to_app</i>
+		                    <span class="nav-item-text">Cerrar Sesión</span>
+	                	</div>
+	                </h:commandLink>
+	            </ul>
+	        </nav>
+		    <div class="tab-content">
+		       <div class="add-button-wrapper">
+	                <h2>Agregar un nuevo Producto</h2>
+	            </div>
+		        <div class="content-container">
+			        <div class="card-container">
+			        	<div class="card-form-container">
+			        		<p class="attribute-title">Nombre</p>
+							<h:inputText id="nombreProducto" value="#{productoManagedBean.producto.nombre}"
+								required="true" requiredMessage="El campo Nombre es requerido" class="texto"/>
+							<p class="attribute-title">Código</p>
+							<h:inputText id="codigoProducto" value="#{productoManagedBean.producto.codigo}"
+								required="true" requiredMessage="El campo Codigo es requerido" class="texto"/>
+							<p class="attribute-title">Stock Total</p>
+							<h:inputText id="stockTotalProducto" value="#{productoManagedBean.producto.stockTotal}"
+								required="true" requiredMessage="El campo Stock Total es requerido" class="texto"/>
+							<p class="attribute-title">Stock Mínimo</p>
+							<h:inputText id="stockMinimoProducto" value="#{productoManagedBean.producto.stockMinimo}"
+								required="true" requiredMessage="El campo Stock Mínimo es requerido" class="texto">
+								<f:convertNumber />
+							</h:inputText>
+							<p class="attribute-title">Segmentación</p>
+							<h:inputText id="segmentacionProducto" value="#{productoManagedBean.producto.segmentacion}"
+								required="true" requiredMessage="El campo Segmentación es requerido" class="texto"/>
+							<p class="attribute-title">Peso</p>
+							<h:inputText id="pesoProducto" value="#{productoManagedBean.producto.peso}"
+								required="true" requiredMessage="El campo Peso es requerido" class="texto">
+								<f:convertNumber />
+							</h:inputText>
+							<p class="attribute-title">Estiba</p>
+							<h:inputText id="estibaProducto" value="#{productoManagedBean.producto.estiba}"
+								required="true" requiredMessage="El campo Estiba es requerido" class="texto"/>
+							<p class="attribute-title">Volumen</p>
+							<h:inputText id="volumenProducto" value="#{productoManagedBean.producto.volumen}"
+								required="true" requiredMessage="El campo Volumen es requerido" class="texto">
+								<f:convertNumber />
+							</h:inputText>
+							<p class="attribute-title">Familia</p>
+							<h:selectOneMenu id="familia" value="#{productoManagedBean.producto.familia}" converter="omnifaces.SelectItemsConverter" class="texto">
+								<f:selectItem itemLabel="Elige una" noSelectionOption="true" />
+								<f:selectItems value="#{familiaManagedBean.obtenerTodasLasFamilias()}" var="familia" itemValue="#{familia}" itemLabel="#{familia.nombre}"/>
+							</h:selectOneMenu>
+							<br/>
+							<h:messages class="mensaje-error"/>
+							<br/>
+							<h:panelGrid columns="2">
+								<h:commandLink action="#{productoManagedBean.crearProductoEnd()}" value="Confirmar" class="boton low-emphasis-wide"/>
+								<h:commandLink action="mostrarTodosLosProductos" value="Cancelar" immediate="true"  class="boton low-emphasis-wide"/>
+							</h:panelGrid>
+			        	</div>
+			        </div>
+				</div>
+			</div>
+	    </div>
 	</h:form>
-</body> 
+</h:body>
 </html>

@@ -166,7 +166,7 @@ h3{
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.135216);
 }
 
-input.texto{
+.texto{
     border-radius: 3.5px;
     border: 1px solid var(--gris-300);
     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
@@ -176,7 +176,7 @@ input.texto{
     padding: 7px 10px;
     margin-bottom: 16px;
 }
-input.texto:focus{
+.texto:focus{
 	border-color: var(--indigo-300);
 }
 
@@ -230,9 +230,6 @@ th:first-child{
 }
 th:last-child{
     border-radius:0 10px 0 0;
-}
-.no-text-content{
-    
 }
 
 tr, td{
@@ -333,12 +330,17 @@ tr, td{
     padding: 10px 10px 30px 30px;
 }
 
+.card-form-container{
+	padding-top: 10px;
+	max-width: 300px;	
+}
+
 .attribute-title{
-    font-size: 16px;
-    font-weight: 600;
-    text-transform: uppercase;
+    line-height: 30px;
     color: var(--indigo-400);
-    padding-bottom: 5px;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 14px;
 }
 
 .title-name{
