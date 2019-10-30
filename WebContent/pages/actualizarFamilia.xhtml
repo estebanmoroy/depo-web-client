@@ -4,30 +4,100 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"> 
 
-<h:head></h:head> 
-<body> 
+<h:head>
+	<title>DEPO - Ingresar Nuevo Producto</title>
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet" />
+	<h:outputStylesheet name="css/reset.css"></h:outputStylesheet>
+	<h:outputStylesheet name="css/styles.css"></h:outputStylesheet>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet" />
+</h:head> 
+<h:body>
 	<h:form>
-		<h:messages />
-		<h2>Actualizar Familia: #{familiaManagedBean.familia.nombre}</h2>
-		<h:inputHidden value="#{familiaManagedBean.familia.id}" />
-		<h:inputHidden value="#{familiaManagedBean.familia.nombre}" />
-		<h:inputHidden value="#{familiaManagedBean.familia.codigo}" />
-		<label class="attibute-title">Nombre</label>
-		<span>#{familiaManagedBean.familia.nombre}</span>
-		<br />
-		<label class="attibute-title">Código</label>
-		<span>#{familiaManagedBean.familia.codigo}</span> 
-		<br />
-		<label class="attibute-title">Descripción</label>
-		<h:inputText id="descripcionFamilia" value="#{familiaManagedBean.familia.descripcion}" required="true" requiredMessage="El campo descripcion es requerido"/>
-		<br />
-		<label class="attibute-title">Incompatible con</label>
-		<h:inputText id="incompatibleFamilia" value="#{familiaManagedBean.familia.incompatible}"/>
-		<br />
-		<h:panelGrid columns="2">
-			<h:commandButton action="#{familiaManagedBean.actualizarFamiliaEnd()}" value="Confirmar" />
-			<h:commandButton action="mostrarTodasLasFamilias" value="Cancelar" immediate="true"/>
-		</h:panelGrid>
+		<div class="grid-container">
+			<nav class="sidebar">
+	            <div class="logo">
+					<h:graphicImage name="img/depo-logo.png" class="depo-logo" />
+	            </div>
+	            <ul class="nav-group-inicio">
+	                <h:commandLink action="main">
+	                	<div class="nav-item">
+		                    <i class="material-icons-outlined">home</i>
+		                    <span class="nav-item-text">Inicio</span>
+	                	</div>
+	                </h:commandLink>
+	            </ul>
+	            <ul class="nav-group-productos">
+	                <div class="nav-group-title">Productos</div>
+	                <h:commandLink action="mostrarTodosLosProductos">
+	                	<div class="nav-item nav-item-selected">
+		                    <i class="material-icons-outlined">category</i>
+		                    <span class="nav-item-text">Productos</span>
+	                	</div>
+	                </h:commandLink>
+	                <h:commandLink action="mostrarTodosLosLotes">
+	                	<div class="nav-item">
+		                    <i class="material-icons-outlined">widgets</i>
+		                    <span class="nav-item-text">Lotes</span>
+	                	</div>
+	                </h:commandLink>
+	                <h:commandLink action="mostrarTodasLasFamilias">
+	                	<div class="nav-item">
+		                    <i class="material-icons-outlined">local_offer</i>
+		                    <span class="nav-item-text">Familias</span>
+	                	</div>
+	                </h:commandLink>
+	            </ul>
+	            <ul class="nav-group-personal">
+	                <div class="nav-group-title">Personal</div>
+	                <h:commandLink action="perfil">
+	                	<div class="nav-item">
+		                    <i class="material-icons-outlined">account_circle</i>
+		                    <span class="nav-item-text">Perfil</span>
+	                	</div>
+	                </h:commandLink>
+	                <h:commandLink action="#{usuarioManagedBean.logOut}">
+	                	<div class="nav-item">
+		                    <i class="material-icons-outlined">exit_to_app</i>
+		                    <span class="nav-item-text">Cerrar Sesión</span>
+	                	</div>
+	                </h:commandLink>
+	            </ul>
+	        </nav>
+		    <div class="tab-content">
+		       <div class="add-button-wrapper">
+	                <h2>Actualizar Familia</h2>
+	            </div>
+		        <div class="content-container">
+			        <div class="card-container">
+			        	<div class="card-form-container">
+			        		<h:inputHidden value="#{familiaManagedBean.familia.id}" />
+							<h:inputHidden value="#{familiaManagedBean.familia.nombre}" />
+							<h:inputHidden value="#{familiaManagedBean.familia.codigo}" />
+			        		<p class="attribute-title">Nombre</p>
+							<p class="attribute-value">#{familiaManagedBean.familia.nombre}</p>
+							<p class="attribute-title">Código</p>
+							<p class="attribute-value">#{familiaManagedBean.familia.codigo}</p>
+							<p class="attribute-title">Descripción</p>
+							<h:inputText id="descripcionFamilia" value="#{familiaManagedBean.familia.descripcion}" 
+								required="true" requiredMessage="El campo descripcion es requerido" class="texto"/>
+							<p class="attribute-title">Stock Mínimo</p>
+							<h:inputText id="incompatibleFamilia" value="#{familiaManagedBean.familia.incompatible}"
+								class="texto"/>
+							<br/>
+							<h:messages class="mensaje-error"/>
+							<br/>
+							<h:commandLink action="#{familiaManagedBean.actualizarFamiliaEnd()}" class="boton medium-emphasis-wide">
+								<f:setPropertyActionListener target="#{familiaManagedBean.familia}" value="#{familia}"/>
+	                        	<span class="button-text">Confirmar</span>
+							</h:commandLink>
+							<h:commandLink action="mostrarTodasLasFamilias" immediate="true" class="boton medium-emphasis-wide ">
+	                       		<span class="button-text">Cancelar</span>
+							</h:commandLink>
+			        	</div>
+			        </div>
+				</div>
+			</div>
+	    </div>
 	</h:form>
-</body> 
+</h:body>
 </html>
