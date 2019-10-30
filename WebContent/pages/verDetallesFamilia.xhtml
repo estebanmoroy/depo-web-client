@@ -4,32 +4,104 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"> 
 
-<h:head></h:head> 
-<body> 
+<h:head>
+	<title>DEPO - Inicio</title>
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet" />
+	<h:outputStylesheet name="css/reset.css"></h:outputStylesheet>
+	<h:outputStylesheet name="css/styles.css"></h:outputStylesheet>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet" />
+</h:head> 
+<h:body>
 	<h:form>
-		<h:messages />
-		<label class="attibute-title">Nombre</label>
-		<h:outputLabel for="nombreFamilia" value="#{familiaManagedBean.familia.nombre}" />
-		<br />
-		<label class="attibute-title">Código</label>
-		<h:outputLabel for="codigoFamilia" value="#{familiaManagedBean.familia.codigo}"/>
-		<br />
-		<label class="attibute-title">Descripción</label>
-		<h:outputLabel for="descripcionFamilia" value="#{familiaManagedBean.familia.descripcion}"/>
-		<br />
-		<label class="attibute-title">Incompatible con</label>
-		<h:outputLabel for="incompatibleFamilia" value="#{familiaManagedBean.familia.incompatible}"/>
-		<br />
-		<h:inputHidden value="#{familiaManagedBean.familia.id}" />
-		<h:panelGrid columns="2">
-			<h:commandButton action="#{familiaManagedBean.actualizarFamiliaStart()}" value="Editar">
-				<f:setPropertyActionListener target="#{familiaManagedBean.familia}" value="#{familia}"/>
-			</h:commandButton>
-			<h:commandButton action="#{familiaManagedBean.eliminarFamiliaStart()}" value="Eliminar">
-				<f:setPropertyActionListener target="#{familiaManagedBean.familia}" value="#{familia}"/>
-			</h:commandButton>
-		</h:panelGrid>
+		<div class="grid-container">
+			<nav class="sidebar">
+	            <div class="logo">
+					<h:graphicImage name="img/depo-logo.png" class="depo-logo" />
+	            </div>
+	            <ul class="nav-group-inicio">
+	                <h:commandLink action="main">
+	                	<div class="nav-item">
+		                    <i class="material-icons-outlined">home</i>
+		                    <span class="nav-item-text">Inicio</span>
+	                	</div>
+	                </h:commandLink>
+	            </ul>
+	            <ul class="nav-group-productos">
+	                <div class="nav-group-title">Productos</div>
+	                <h:commandLink action="mostrarTodosLosProductos">
+	                	<div class="nav-item nav-item-selected">
+		                    <i class="material-icons-outlined">category</i>
+		                    <span class="nav-item-text">Productos</span>
+	                	</div>
+	                </h:commandLink>
+	                <h:commandLink action="mostrarTodosLosLotes">
+	                	<div class="nav-item">
+		                    <i class="material-icons-outlined">widgets</i>
+		                    <span class="nav-item-text">Lotes</span>
+	                	</div>
+	                </h:commandLink>
+	                <h:commandLink action="mostrarTodasLasFamilias">
+	                	<div class="nav-item">
+		                    <i class="material-icons-outlined">local_offer</i>
+		                    <span class="nav-item-text">Familias</span>
+	                	</div>
+	                </h:commandLink>
+	            </ul>
+	            <ul class="nav-group-personal">
+	                <div class="nav-group-title">Personal</div>
+	                <h:commandLink action="perfil">
+	                	<div class="nav-item">
+		                    <i class="material-icons-outlined">account_circle</i>
+		                    <span class="nav-item-text">Perfil</span>
+	                	</div>
+	                </h:commandLink>
+	                <h:commandLink action="#{usuarioManagedBean.logOut}">
+	                	<div class="nav-item">
+		                    <i class="material-icons-outlined">exit_to_app</i>
+		                    <span class="nav-item-text">Cerrar Sesión</span>
+	                	</div>
+	                </h:commandLink>
+	            </ul>
+	        </nav>
+		    <div class="tab-content">
+		       <div class="add-button-wrapper">
+	                <h2>Agregar un nuevo Producto</h2>
+	            </div>
+		        <div class="content-container">
+			        <div class="card-container">
+			        	<h:messages />
+						<p class="attribute-title title-name">Nombre</p>
+						<h1 class="attribute-value-name">						
+							<h:outputText for="nombreProducto" value="#{familiaManagedBean.familia.nombre}"/>
+						</h1>
+						<p class="attribute-title">Código</p>
+						<p class="attribute-value">
+							<h:outputLabel for="codigoProducto" value="#{familiaManagedBean.familia.codigo}"/>
+						</p>
+						<p class="attribute-title">Descripción</p>
+						<p class="attribute-value">
+							<h:outputLabel for="stockTotalProducto" value="#{familiaManagedBean.familia.descripcion}"/>
+						</p>
+						<p class="attribute-title">Incompatibilidades</p>
+						<p class="attribute-value">
+							<h:outputLabel for="incompatibleFamilia" value="#{familiaManagedBean.familia.incompatible}"/>
+						</p>
+						<h:inputHidden value="#{familiaManagedBean.familia.id}" />
+						<br/>
+						<h:commandLink action="#{familiaManagedBean.actualizarFamiliaStart()}" class="boton medium-emphasis-wide">
+							<f:setPropertyActionListener target="#{familiaManagedBean.familia}" value="#{familia}"/>
+							<i class="material-icons-outlined">edit</i>
+                        	<span class="button-text">Editar</span>
+						</h:commandLink>
+						<h:commandLink action="#{familiaManagedBean.eliminarFamiliaStart()}" class="boton boton-rojo medium-emphasis-wide ">
+							<f:setPropertyActionListener target="#{familiaManagedBean.familia}" value="#{familia}"/>
+							<i class="material-icons-outlined">delete</i>
+                       		<span class="button-text">Eliminar</span>
+						</h:commandLink>
+			        </div>
+				</div>
+			</div>
+	    </div>
 	</h:form>
-
-</body> 
+</h:body>
 </html>

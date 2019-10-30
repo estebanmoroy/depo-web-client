@@ -308,9 +308,6 @@ tr, td{
     margin-top: 30px;
 }
 
-.low-emphasis-wide:hover{
-}
-
 .boton-rojo{
     color: var(--rojo-500);
     border-color: var(--rojo-300);
@@ -362,7 +359,6 @@ tr, td{
 
 .attribute-value{
     font-size: 18px;
-    font-weight: 600;
     padding-bottom: 10px;
 }
 
