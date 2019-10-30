@@ -110,11 +110,9 @@
 							<h:messages class="mensaje-error"/>
 							<br/>
 							<h:commandLink action="#{productoManagedBean.actualizarProductoEnd()}" class="boton medium-emphasis-wide">
-								<f:setPropertyActionListener target="#{productoManagedBean.producto}" value="#{producto}"/>
 	                        	<span class="button-text">Confirmar</span>
 							</h:commandLink>
 							<h:commandLink action="mostrarTodosLosProductos" immediate="true" class="boton medium-emphasis-wide ">
-								<f:setPropertyActionListener target="#{productoManagedBean.producto}" value="#{producto}" />
 	                       		<span class="button-text">Cancelar</span>
 							</h:commandLink>
 			        	</div>
