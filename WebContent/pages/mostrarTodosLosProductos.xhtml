@@ -75,16 +75,14 @@
 				</div>
 				<div class="searchbar">
 					<div class="searchbar-container">
-						<input type="search" name="searchbar" id="searchbar" placeholder="Buscar">
+						<h:inputText value=" " type="search" name="searchbar" class="searchbar" placeholder="Buscar"/>
 						<span class="icono-searchbar justificar-derecha">
 							<i class="material-icons-outlined">search</i>
 						</span>
 					</div>
 				</div>
 				<div class="mensajes">
-					<div class="mensajes">
-						<h:messages infoClass="mensaje mensaje-normal" errorClass="mensaje mensaje-error" />
-					</div>
+					<h:messages infoClass="mensaje mensaje-normal" errorClass="mensaje mensaje-error" />
 				</div>
 				<div class="content-container">
 					<h:dataTable value="#{productoManagedBean.obtenerTodosLosProductos()}" var="producto">
