@@ -1,57 +1,120 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"> 
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
 
-<h:head></h:head> 
-<body> 
-	<h:form>
-		<h:messages />
-		<h2>Ingresar un nuevo Lote</h2>
-		<p class="attribute-title">Código</p>
-        <h:inputText id="codigoLote" value="#{loteManagedBean.lote.codigo}" 
-            required="true" requiredMessage="El campo código es requerido"/>
-        <br />
-        <p class="attribute-title">Producto</p>
-        <!-- TODO ComboBox para seleccionar Productos-->
-        <h:inputText id="productoLote" value="#{loteManagedBean.lote.producto}" 
-            required="true" requiredMessage="El campo producto es requerido"/>
-        <br />
-        <p class="attribute-title">Cantidad</p>
-        <h:inputText id="cantidadLote" value="#{loteManagedBean.lote.cantidad}" 
-            required="true" requiredMessage="El campo cantidad es requerido">
-            <f:convertNumber />
-		</h:inputText>
-        <br />
-        <p class="attribute-title">Cantidad</p>
-        <h:inputText id="cantidadLote" value="#{loteManagedBean.lote.cantidad}" 
-            required="true" requiredMessage="El campo cantidad es requerido">
-            <f:convertNumber />
-		</h:inputText>
-        <br />
-        <p class="attribute-title">Fecha de Elaboración</p>
-        <h:inputText id="fechaElaboracionLote" value="#{loteManagedBean.lote.fechaElaboracion}" 
-            required="true" requiredMessage="El campo Fecha de Elaboracion es requerido">
-            <!-- Agregar Date Picker-->
-        </h:inputText>
-        <p class="attribute-title">Fecha de Vencimiento</p>
-        <h:inputText id="fechaVencimientoLote" value="#{loteManagedBean.lote.fechaVencimiento}" 
-            required="true" requiredMessage="El campo Fecha de Vencimiento es requerido">
-            <!-- Agregar Date Picker-->
-		</h:inputText>
-        <br />
-        <p class="attribute-title">Precio</p>
-        <h:inputText id="precioLote" value="#{loteManagedBean.lote.precio}" 
-            required="true" requiredMessage="El campo Precio es requerido">
-            <f:convertNumber />
-		</h:inputText>
-        <br />
-		<h:panelGrid columns="2">
-			<h:commandButton action="#{loteManagedBean.crearLoteEnd()}" value="Confirmar" />
-			<h:commandButton action="mostrarTodosLosLotes" value="Cancelar" immediate="true"/>
-		</h:panelGrid>
-	</h:form>
+<h:head>
+    <title>DEPO - Ingresar Nuevo Lote</title>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet" />
+    <h:outputStylesheet name="css/reset.css"></h:outputStylesheet>
+    <h:outputStylesheet name="css/styles.css"></h:outputStylesheet>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet" />
+</h:head>
+<h:body>
+    <h:form>
+        <div class="grid-container">
+            <nav class="sidebar">
+                <div class="logo">
+                    <h:graphicImage name="img/depo-logo.png" class="depo-logo" />
+                </div>
+                <ul class="nav-group-inicio">
+                    <h:commandLink action="main">
+                        <div class="nav-item">
+                            <i class="material-icons-outlined">home</i>
+                            <span class="nav-item-text">Inicio</span>
+                        </div>
+                    </h:commandLink>
+                </ul>
+                <ul class="nav-group-productos">
+                    <div class="nav-group-title">Productos</div>
+                    <h:commandLink action="mostrarTodosLosProductos">
+                        <div class="nav-item">
+                            <i class="material-icons-outlined">category</i>
+                            <span class="nav-item-text">Productos</span>
+                        </div>
+                    </h:commandLink>
+                    <h:commandLink action="mostrarTodosLosLotes">
+                        <div class="nav-item nav-item-selected">
+                            <i class="material-icons-outlined">widgets</i>
+                            <span class="nav-item-text">Lotes</span>
+                        </div>
+                    </h:commandLink>
+                    <h:commandLink action="mostrarTodasLasFamilias">
+                        <div class="nav-item">
+                            <i class="material-icons-outlined">local_offer</i>
+                            <span class="nav-item-text">Familias</span>
+                        </div>
+                    </h:commandLink>
+                </ul>
+                <ul class="nav-group-personal">
+                    <div class="nav-group-title">Personal</div>
+                    <h:commandLink action="perfil">
+                        <div class="nav-item">
+                            <i class="material-icons-outlined">account_circle</i>
+                            <span class="nav-item-text">Perfil</span>
+                        </div>
+                    </h:commandLink>
+                    <h:commandLink action="#{usuarioManagedBean.logOut}">
+                        <div class="nav-item">
+                            <i class="material-icons-outlined">exit_to_app</i>
+                            <span class="nav-item-text">Cerrar Sesión</span>
+                        </div>
+                    </h:commandLink>
+                </ul>
+            </nav>
 
-</body> 
+            <div class="tab-content">
+                <div class="add-button-wrapper">
+                    <h2>Agregar un nuevo Lote</h2>
+                </div>
+                <div class="mensajes">
+                    <h:messages infoClass="mensaje mensaje-normal" errorClass="mensaje mensaje-error" />
+                </div>
+                <div class="content-container">
+                    <div class="card-container">
+                        <div class="card-form-container">
+                            <p class="attribute-title">Código</p>
+                            <h:inputText id="codigoLote" value="#{loteManagedBean.lote.codigo}" required="true"
+                                requiredMessage="El campo código es requerido" class="texto" />
+                            <p class="attribute-title">Producto</p>
+                            <h:selectOneMenu id="productoLote" value="#{loteManagedBean.lote.producto}"
+                                converter="omnifaces.SelectItemsConverter" class="texto">
+                                <f:selectItem itemLabel="Elige uno" noSelectionOption="true" />
+                                <f:selectItems value="#{productoManagedBean.obtenerTodosLosProductos()}" var="producto"
+                                    itemValue="#{producto}" itemLabel="#{producto.nombre}" />
+                            </h:selectOneMenu>
+                            <p class="attribute-title">Cantidad</p>
+                            <h:inputText id="cantidadLote" value="#{loteManagedBean.lote.cantidad}" required="true"
+                                requiredMessage="El campo Cantidad es requerido" class="texto">
+                                <f:convertNumber />
+                            </h:inputText>
+                            <h:inputText id="fechaElaboracionLote" a:type="date"
+                                value="#{loteManagedBean.lote.fechaElaboracion}">
+                                <f:convertDateTime pattern="yyyy-mm-dd" />
+                            </h:inputText>
+                            <h:inputText id="fechaVencimientoLote" a:type="date"
+                                value="#{loteManagedBean.lote.fechaVencimiento}">
+                                <f:convertDateTime pattern="yyyy-mm-dd" />
+                            </h:inputText>
+                            <p class="attribute-title">Precio</p>
+                            <h:inputText id="precioLote" value="#{loteManagedBean.lote.precio}" required="true"
+                                requiredMessage="El campo Precio es requerido" class="texto">
+                                <f:convertNumber />
+                            </h:inputText>
+                            <h:commandLink action="#{loteManagedBean.crearLoteEnd()}"
+                                class="boton medium-emphasis-wide">
+                                <span class="button-text">Confirmar</span>
+                            </h:commandLink>
+                            <h:commandLink action="mostrarTodosLosLotes" immediate="true"
+                                class="boton medium-emphasis-wide ">
+                                <span class="button-text">Cancelar</span>
+                            </h:commandLink>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </h:form>
+</h:body>
+
 </html>
