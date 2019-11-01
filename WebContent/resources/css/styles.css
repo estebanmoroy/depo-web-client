@@ -20,15 +20,25 @@
 --indigo-800: #4845b6;
 --indigo-900: #473c9c;
 
---rojo-300: #FEB2B2;
---rojo-400: #FC8181;
---rojo-500: #F56565;
---rojo-600: #E53E3E;
-
+--verde-100: #F0FFF4;
+--verde-200: #C6F6D5;
 --verde-300: #9AE6B4;
 --verde-400: #68D391;
 --verde-500: #48BB78;
---verde-600: #38A169;
+--verde-600: #38A169; 
+--verde-700: #2F855A;
+--verde-800: #276749;
+--verde-900: #22543D;
+
+--rojo-100: #FFF5F5;
+--rojo-200: #FED7D7;
+--rojo-300: #FEB2B2;
+--rojo-400: #FC8181;
+--rojo-500: #F56565;
+--rojo-600: #E53E3E; 
+--rojo-700: #C53030;
+--rojo-800: #9B2C2C;
+--rojo-900: #742A2A;
 }
 
 body{
@@ -81,6 +91,8 @@ body{
 .mensajes{
     grid-column: contenido-inicio / contenido-final;
     grid-row: messages-inicio / messages-final;
+    
+    margin-top: 20px;
 }
 
 .content-container{
@@ -165,6 +177,7 @@ h3{
 }
 
 .searchbar-container{
+	position: relative;
     max-width: 1000px;
     margin-top: 30px;
     width: 100%;
@@ -190,12 +203,6 @@ h3{
 }
 .texto:focus{
 	border-color: var(--indigo-300);
-}
-
-.mensaje-error{
-    font-size: 13.5px;
-    font-weight: 500;
-    color: var(--rojo-500);
 }
 
 input.searchbar{
@@ -228,8 +235,9 @@ input.searchbar{
 .mensaje{
     position: relative;
     padding: 8px 30px;
-    margin-top: 30px;
-    font-weight: 600;
+    margin-top: 5px;
+    font-size: 14px;
+    font-weight: 500;
 }
 
 .mensaje-normal{
@@ -262,6 +270,7 @@ input.searchbar{
 }
 
 .login-error{
+	font-size: 13px;
     color: var(--rojo-500);
     font-style: italic;
 }
