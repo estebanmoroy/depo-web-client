@@ -1,17 +1,16 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"> 
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
 
-	<h:head>
-		<title>DEPO - Login</title>
-	    <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet" />
-		<h:outputStylesheet name="css/reset.css"></h:outputStylesheet>
-		<h:outputStylesheet name="css/styles.css"></h:outputStylesheet>
-		<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet" />
-	</h:head> 
-	<h:body>
+<h:head>
+	<title>DEPO - Login</title>
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet" />
+	<h:outputStylesheet name="css/reset.css"></h:outputStylesheet>
+	<h:outputStylesheet name="css/styles.css"></h:outputStylesheet>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet" />
+</h:head>
+<h:body>
 	<div class="form-container">
 		<h:form class="login-form">
 			<div class="logo-form">
@@ -21,22 +20,24 @@
 				<label for="usuario" class="login-label">
 					Usuario
 				</label>
-				<h:inputText value="#{usuarioManagedBean.nombreAcceso}" class="texto"/>
+				<h:inputText value="#{usuarioManagedBean.nombreAcceso}" class="texto" />
 				<label for="contrasena" class="login-label">
 					Contraseña
-				</label>		
-				<h:inputSecret value="#{usuarioManagedBean.contrasena}" class="texto"/>
-				<h:messages class="mensaje-error"/>				
+				</label>
+				<h:inputSecret value="#{usuarioManagedBean.contrasena}" class="texto" />
+				<h:messages errorClass="login-error" />
 			</div>
 			<div class="button-wrapper">
-				<h:commandButton value="Ingresar" action="#{usuarioManagedBean.autenticar}" class="boton high-emphasis-wide"/>				
+				<h:commandButton value="Ingresar" action="#{usuarioManagedBean.autenticar}"
+					class="boton high-emphasis-wide" />
 			</div>
 		</h:form>
 	</div>
-		<h:form>
-			<br />
-			<br />
-			<br />
-		</h:form>
-	</h:body> 
+	<h:form>
+		<br />
+		<br />
+		<br />
+	</h:form>
+</h:body>
+
 </html>

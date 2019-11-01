@@ -1,8 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"> 
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
 
 <h:head>
 	<title>DEPO - Inicio</title>
@@ -15,87 +14,93 @@
 	<h:form>
 		<div class="grid-container">
 			<nav class="sidebar">
-	            <div class="logo">
+				<div class="logo">
 					<h:graphicImage name="img/depo-logo.png" class="depo-logo" />
-	            </div>
-	            <ul class="nav-group-inicio">
-	                <h:commandLink action="main">
-	                	<div class="nav-item">
-		                    <i class="material-icons-outlined">home</i>
-		                    <span class="nav-item-text">Inicio</span>
-	                	</div>
-	                </h:commandLink>
-	            </ul>
-	            <ul class="nav-group-productos">
-	                <div class="nav-group-title">Productos</div>
-	                <h:commandLink action="mostrarTodosLosProductos">
-	                	<div class="nav-item nav-item-selected">
-		                    <i class="material-icons-outlined">category</i>
-		                    <span class="nav-item-text">Productos</span>
-	                	</div>
-	                </h:commandLink>
-	                <h:commandLink action="mostrarTodosLosLotes">
-	                	<div class="nav-item">
-		                    <i class="material-icons-outlined">widgets</i>
-		                    <span class="nav-item-text">Lotes</span>
-	                	</div>
-	                </h:commandLink>
-	                <h:commandLink action="mostrarTodasLasFamilias">
-	                	<div class="nav-item">
-		                    <i class="material-icons-outlined">local_offer</i>
-		                    <span class="nav-item-text">Familias</span>
-	                	</div>
-	                </h:commandLink>
-	            </ul>
-	            <ul class="nav-group-personal">
-	                <div class="nav-group-title">Personal</div>
-	                <h:commandLink action="perfil">
-	                	<div class="nav-item">
-		                    <i class="material-icons-outlined">account_circle</i>
-		                    <span class="nav-item-text">Perfil</span>
-	                	</div>
-	                </h:commandLink>
-	                <h:commandLink action="#{usuarioManagedBean.logOut}">
-	                	<div class="nav-item">
-		                    <i class="material-icons-outlined">exit_to_app</i>
-		                    <span class="nav-item-text">Cerrar Sesión</span>
-	                	</div>
-	                </h:commandLink>
-	            </ul>
-	        </nav>
-		    <div class="tab-content">
-		       <div class="add-button-wrapper">
-	                <h2>Agregar una nueva Familia</h2>
-	            </div>
-		        <div class="content-container">
-			        <div class="card-container">
-			        	<div class="card-form-container">
-			        		<p class="attribute-title">Nombre</p>
-			        		<h:inputText id="nombreFamilia" value="#{familiaManagedBean.familia.nombre}" 
-								required="true" requiredMessage="El campo nombre es requerido" class="texto"/>
+				</div>
+				<ul class="nav-group-inicio">
+					<h:commandLink action="main">
+						<div class="nav-item">
+							<i class="material-icons-outlined">home</i>
+							<span class="nav-item-text">Inicio</span>
+						</div>
+					</h:commandLink>
+				</ul>
+				<ul class="nav-group-productos">
+					<div class="nav-group-title">Productos</div>
+					<h:commandLink action="mostrarTodosLosProductos">
+						<div class="nav-item nav-item-selected">
+							<i class="material-icons-outlined">category</i>
+							<span class="nav-item-text">Productos</span>
+						</div>
+					</h:commandLink>
+					<h:commandLink action="mostrarTodosLosLotes">
+						<div class="nav-item">
+							<i class="material-icons-outlined">widgets</i>
+							<span class="nav-item-text">Lotes</span>
+						</div>
+					</h:commandLink>
+					<h:commandLink action="mostrarTodasLasFamilias">
+						<div class="nav-item">
+							<i class="material-icons-outlined">local_offer</i>
+							<span class="nav-item-text">Familias</span>
+						</div>
+					</h:commandLink>
+				</ul>
+				<ul class="nav-group-personal">
+					<div class="nav-group-title">Personal</div>
+					<h:commandLink action="perfil">
+						<div class="nav-item">
+							<i class="material-icons-outlined">account_circle</i>
+							<span class="nav-item-text">Perfil</span>
+						</div>
+					</h:commandLink>
+					<h:commandLink action="#{usuarioManagedBean.logOut}">
+						<div class="nav-item">
+							<i class="material-icons-outlined">exit_to_app</i>
+							<span class="nav-item-text">Cerrar Sesión</span>
+						</div>
+					</h:commandLink>
+				</ul>
+			</nav>
+
+			<div class="tab-content">
+				<div class="add-button-wrapper">
+					<h2>Agregar una nueva Familia</h2>
+				</div>
+				<div class="mensajes">
+					<h:messages infoClass="mensaje mensaje-normal" errorClass="mensaje mensaje-error" />
+				</div>
+				<div class="content-container">
+					<div class="card-container">
+						<div class="card-form-container">
+							<p class="attribute-title">Nombre</p>
+							<h:inputText id="nombreFamilia" value="#{familiaManagedBean.familia.nombre}" required="true"
+								requiredMessage="El campo nombre es requerido" class="texto" />
 							<p class="attribute-title">Código</p>
-							<h:inputText id="codigoFamilia" value="#{familiaManagedBean.familia.codigo}" 
-								required="true" requiredMessage="El campo codigo es requerido" class="texto"/>
+							<h:inputText id="codigoFamilia" value="#{familiaManagedBean.familia.codigo}" required="true"
+								requiredMessage="El campo codigo es requerido" class="texto" />
 							<p class="attribute-title">Descripción</p>
-							<h:inputText id="descripcionFamilia" value="#{familiaManagedBean.familia.descripcion}" 
-								required="true" requiredMessage="El campo descripcion es requerido" class="texto"/>
+							<h:inputText id="descripcionFamilia" value="#{familiaManagedBean.familia.descripcion}"
+								required="true" requiredMessage="El campo descripcion es requerido" class="texto" />
 							<p class="attribute-title">Incompatibilidades</p>
 							<h:inputText id="incompatibleFamilia" value="#{familiaManagedBean.familia.incompatible}"
-								class="texto"/>
-							<br/>
-							<h:messages class="mensaje-error"/>
-							<br/>
-							<h:commandLink action="#{familiaManagedBean.crearFamiliaEnd()}" class="boton medium-emphasis-wide">
-	                        	<span class="button-text">Confirmar</span>
+								class="texto" />
+							<br />
+							<br />
+							<h:commandLink action="#{familiaManagedBean.crearFamiliaEnd()}"
+								class="boton medium-emphasis-wide">
+								<span class="button-text">Confirmar</span>
 							</h:commandLink>
-							<h:commandLink action="mostrarTodasLasFamilias" immediate="true" class="boton medium-emphasis-wide ">
-	                       		<span class="button-text">Cancelar</span>
+							<h:commandLink action="mostrarTodasLasFamilias" immediate="true"
+								class="boton medium-emphasis-wide ">
+								<span class="button-text">Cancelar</span>
 							</h:commandLink>
-			        	</div>
-			        </div>
+						</div>
+					</div>
 				</div>
 			</div>
-	    </div>
+		</div>
 	</h:form>
 </h:body>
+
 </html>
