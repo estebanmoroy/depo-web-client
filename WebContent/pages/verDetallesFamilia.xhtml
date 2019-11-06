@@ -4,12 +4,13 @@
 	xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
 
 <h:head>
-	<title>DEPO - Inicio</title>
+	<title>DEPO - Familias</title>
 	<link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet" />
 	<h:outputStylesheet name="css/reset.css"></h:outputStylesheet>
 	<h:outputStylesheet name="css/styles.css"></h:outputStylesheet>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet" />
 </h:head>
+
 <h:body>
 	<h:form>
 		<div class="grid-container">
@@ -65,32 +66,31 @@
 
 			<div class="tab-content">
 				<div class="add-button-wrapper">
-					<h2>Agregar un nuevo Producto</h2>
+					<h2>Familias</h2>
 				</div>
 				<div class="mensajes">
 					<h:messages infoClass="mensaje mensaje-normal" errorClass="mensaje mensaje-error" />
 				</div>
 				<div class="content-container">
 					<div class="card-container">
-						<h:messages />
+						<h:inputHidden value="#{familiaManagedBean.familia.id}" />
 						<p class="attribute-title title-name">Nombre</p>
 						<h1 class="attribute-value-name">
-							<h:outputText for="nombreProducto" value="#{familiaManagedBean.familia.nombre}" />
+							<h:outputText for="nombreFamilia" value="#{familiaManagedBean.familia.nombre}" />
 						</h1>
 						<p class="attribute-title">Código</p>
 						<p class="attribute-value">
-							<h:outputLabel for="codigoProducto" value="#{familiaManagedBean.familia.codigo}" />
+							<h:outputLabel for="codigoFamilia" value="#{familiaManagedBean.familia.codigo}" />
 						</p>
 						<p class="attribute-title">Descripción</p>
 						<p class="attribute-value">
-							<h:outputLabel for="stockTotalProducto" value="#{familiaManagedBean.familia.descripcion}" />
+							<h:outputLabel for="descripcionFamilia" value="#{familiaManagedBean.familia.descripcion}" />
 						</p>
 						<p class="attribute-title">Incompatibilidades</p>
 						<p class="attribute-value">
 							<h:outputLabel for="incompatibleFamilia"
 								value="#{familiaManagedBean.familia.incompatible}" />
 						</p>
-						<h:inputHidden value="#{familiaManagedBean.familia.id}" />
 						<br />
 						<h:commandLink action="#{familiaManagedBean.actualizarFamiliaStart()}"
 							class="boton medium-emphasis-wide">
