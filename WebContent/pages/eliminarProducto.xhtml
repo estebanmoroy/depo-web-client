@@ -1,19 +1,91 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"> 
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
 
-<h:head></h:head> 
-<body> 
+<h:head>
+	<title>DEPO - Eliminar Producto</title>
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet" />
+	<h:outputStylesheet name="css/reset.css"></h:outputStylesheet>
+	<h:outputStylesheet name="css/styles.css"></h:outputStylesheet>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet" />
+</h:head>
+
+<h:body>
 	<h:form>
-		<h:messages />
-		<h:outputLabel value="¿Está seguro que desea eliminar el producto #{productoManagedBean.producto.nombre}?" />
-		<h:inputHidden value="#{productoManagedBean.producto.id}" />
-		<h:panelGrid columns="2">
-			<h:commandButton action="#{productoManagedBean.eliminarProductoEnd()}" value="Confirmar" />
-			<h:commandButton action="#{productoManagedBean.obtenerTodosLosProductos()}" value="Cancelar" />
-		</h:panelGrid>
+		<div class="grid-container">
+			<nav class="sidebar">
+				<div class="logo">
+					<h:graphicImage name="img/depo-logo.png" class="depo-logo" />
+				</div>
+				<ul class="nav-group-inicio">
+					<h:commandLink action="main">
+						<div class="nav-item">
+							<i class="material-icons-outlined">home</i>
+							<span class="nav-item-text">Inicio</span>
+						</div>
+					</h:commandLink>
+				</ul>
+				<ul class="nav-group-productos">
+					<div class="nav-group-title">Productos</div>
+					<h:commandLink action="mostrarTodosLosProductos">
+						<div class="nav-item nav-item-selected">
+							<i class="material-icons-outlined">category</i>
+							<span class="nav-item-text">Productos</span>
+						</div>
+					</h:commandLink>
+					<h:commandLink action="mostrarTodosLosLotes">
+						<div class="nav-item">
+							<i class="material-icons-outlined">widgets</i>
+							<span class="nav-item-text">Lotes</span>
+						</div>
+					</h:commandLink>
+					<h:commandLink action="mostrarTodasLasFamilias">
+						<div class="nav-item">
+							<i class="material-icons-outlined">local_offer</i>
+							<span class="nav-item-text">Familias</span>
+						</div>
+					</h:commandLink>
+				</ul>
+				<ul class="nav-group-personal">
+					<div class="nav-group-title">Personal</div>
+					<h:commandLink action="perfil">
+						<div class="nav-item">
+							<i class="material-icons-outlined">account_circle</i>
+							<span class="nav-item-text">Perfil</span>
+						</div>
+					</h:commandLink>
+					<h:commandLink action="#{usuarioManagedBean.logOut}">
+						<div class="nav-item">
+							<i class="material-icons-outlined">exit_to_app</i>
+							<span class="nav-item-text">Cerrar Sesión</span>
+						</div>
+					</h:commandLink>
+				</ul>
+			</nav>
+
+			<div class="tab-content">
+				<div class="add-button-wrapper">
+					<h2>¿Está seguro que desea eliminar el producto #{productoManagedBean.producto.nombre}?</h2>
+				</div>
+				<div class="mensajes">
+					<h:messages infoClass="mensaje mensaje-normal" errorClass="mensaje mensaje-error" />
+				</div>
+				<div class="content-container">
+					<div class="card-container">
+						<h:inputHidden value="#{productoManagedBean.producto.id}" />
+						<h:commandLink action="#{productoManagedBean.eliminarProductoEnd()}"
+							class="boton medium-emphasis-wide">
+							<span class="button-text">Confirmar</span>
+						</h:commandLink>
+						<h:commandLink action="#{productoManagedBean.obtenerTodosLosProductos()}"
+							class="boton medium-emphasis-wide">
+							<span class="button-text">Cancelar</span>
+						</h:commandLink>
+					</div>
+				</div>
+			</div>
+		</div>
 	</h:form>
-</body> 
+</h:body>
 </html>
