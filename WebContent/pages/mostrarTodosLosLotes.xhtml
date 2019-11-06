@@ -99,13 +99,13 @@
 							#{lote.cantidad}
 						</h:column>
 						<h:column>
-							<f:facet name="header">Fecha de Vencimiento</f:facet>
+							<f:facet name="header">F. Vencimiento</f:facet>
 							#{lote.fechaVencimiento}
 						</h:column>
 						<h:column>
 							<h:inputHidden value="#{lote.id}" />
 							<h:commandLink action="#{loteManagedBean.verDetallesLote()}" value=""
-								class="boton medium-emphasis" title="Ver Detalles">
+								class="boton low-emphasis" title="Ver Detalles">
 								<i class="material-icons-outlined">list_alt</i>
 								<f:setPropertyActionListener target="#{loteManagedBean.lote}" value="#{lote}" />
 							</h:commandLink>

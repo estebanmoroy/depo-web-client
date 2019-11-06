@@ -75,7 +75,7 @@
 				</div>
 				<div class="searchbar">
 					<div class="searchbar-container">
-						<h:inputText value=" " type="search" name="searchbar" class="searchbar" placeholder="Buscar"/>
+						<h:inputText value=" " type="search" name="searchbar" class="searchbar" placeholder="Buscar" />
 						<span class="icono-searchbar justificar-derecha">
 							<i class="material-icons-outlined">search</i>
 						</span>
@@ -105,7 +105,7 @@
 						<h:column>
 							<h:inputHidden value="#{producto.id}" />
 							<h:commandLink action="#{productoManagedBean.verDetallesProducto()}" value=""
-								class="boton medium-emphasis" title="Ver Detalles">
+								class="boton low-emphasis" title="Ver Detalles">
 								<i class="material-icons-outlined">list_alt</i>
 								<f:setPropertyActionListener target="#{productoManagedBean.producto}"
 									value="#{producto}" />
