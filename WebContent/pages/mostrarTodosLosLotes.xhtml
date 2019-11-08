@@ -1,7 +1,8 @@
 <!DOCTYPE html
 	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 
 <h:head>
 	<title>DEPO - Lotes</title>
@@ -75,7 +76,7 @@
 				</div>
 				<div class="searchbar">
 					<div class="searchbar-container">
-						<h:inputText value=" " type="search" name="searchbar" class="searchbar" placeholder="Buscar" />
+						<h:inputText type="search" name="searchbar" class="searchbar" a:placeholder="Buscar" />
 						<span class="icono-searchbar justificar-derecha">
 							<i class="material-icons-outlined">search</i>
 						</span>
@@ -99,23 +100,23 @@
 							#{lote.cantidad}
 						</h:column>
 						<h:column>
-							<f:facet name="header">Fecha de Vencimiento</f:facet>
+							<f:facet name="header">F. Vencimiento</f:facet>
 							#{lote.fechaVencimiento}
 						</h:column>
 						<h:column>
 							<h:inputHidden value="#{lote.id}" />
-							<h:commandLink action="#{loteManagedBean.verDetallesLote()}" value=""
-								class="boton medium-emphasis" title="Ver Detalles">
+							<h:commandLink action="#{loteManagedBean.verDetallesLote()}" immediate="true"
+								class="boton low-emphasis" title="Ver Detalles">
 								<i class="material-icons-outlined">list_alt</i>
 								<f:setPropertyActionListener target="#{loteManagedBean.lote}" value="#{lote}" />
 							</h:commandLink>
-							<h:commandLink action="#{loteManagedBean.actualizarLoteStart()}" class="boton low-emphasis"
-								title="Editar">
+							<h:commandLink action="#{loteManagedBean.actualizarLoteStart()}" immediate="true"
+								class="boton low-emphasis" title="Editar">
 								<i class="material-icons-outlined">edit</i>
 								<f:setPropertyActionListener target="#{loteManagedBean.lote}" value="#{lote}" />
 							</h:commandLink>
-							<h:commandLink action="#{loteManagedBean.eliminarLoteStart()}" class="boton low-emphasis"
-								title="Eliminar">
+							<h:commandLink action="#{loteManagedBean.eliminarLoteStart()}" immediate="true"
+								class="boton low-emphasis" title="Eliminar">
 								<i class="material-icons-outlined">delete</i>
 								<f:setPropertyActionListener target="#{loteManagedBean.lote}" value="#{lote}" />
 							</h:commandLink>

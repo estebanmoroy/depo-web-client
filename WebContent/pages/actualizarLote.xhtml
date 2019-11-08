@@ -1,10 +1,8 @@
 <!DOCTYPE html
     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
-    xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:o="http://omnifaces.org/ui" xmlns:of="http://omnifaces.org/functions"
-    xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
-    >
+    xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:o="http://omnifaces.org/ui"
+    xmlns:of="http://omnifaces.org/functions" xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 
 <h:head>
     <title>DEPO - Ingresar Nuevo Producto</title>
@@ -93,15 +91,18 @@
                                 requiredMessage="El campo Cantidad es requerido" class="texto">
                                 <f:convertNumber />
                             </h:inputText>
+                            <p class="attribute-title">Fecha de Elaboración</p>
                             <h:inputText id="fechaElaboracionLote" a:type="date"
-                                value="#{loteManagedBean.lote.fechaElaboracion}">
+                                value="#{loteManagedBean.lote.fechaElaboracion}" class="texto">
                                 <f:convertDateTime pattern="yyyy-mm-dd" />
                             </h:inputText>
+                            <p class="attribute-title">Fecha de Vencimiento</p>
                             <h:inputText id="fechaVencimientoLote" a:type="date"
-                                value="#{loteManagedBean.lote.fechaVencimiento}">
+                                value="#{loteManagedBean.lote.fechaVencimiento}" class="texto">
                                 <f:convertDateTime pattern="yyyy-mm-dd" />
                             </h:inputText>
                             <p class="attribute-title">Precio</p>
+                            <p class="sugerencia">En dólares</p>
                             <h:inputText id="precioLote" value="#{loteManagedBean.lote.precio}" required="true"
                                 requiredMessage="El campo Precio es requerido" class="texto">
                                 <f:convertNumber />

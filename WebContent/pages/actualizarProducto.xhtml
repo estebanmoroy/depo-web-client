@@ -88,17 +88,21 @@
 								<f:convertNumber />
 							</h:inputText>
 							<p class="attribute-title">Segmentación</p>
+							<p class="sugerencia">Ejemplo: Caja, Bolsa, etc.</p>
 							<h:inputText id="segmentacionProducto" value="#{productoManagedBean.producto.segmentacion}"
 								required="true" requiredMessage="El campo Segmentación es requerido" class="texto" />
 							<p class="attribute-title">Peso</p>
+							<p class="sugerencia">En kilogramos</p>
 							<h:inputText id="pesoProducto" value="#{productoManagedBean.producto.peso}" required="true"
 								requiredMessage="El campo Peso es requerido" class="texto">
 								<f:convertNumber />
 							</h:inputText>
 							<p class="attribute-title">Estiba</p>
+							<p class="sugerencia">Ejemplo: Pallet, Estantería, etc.</p>
 							<h:inputText id="estibaProducto" value="#{productoManagedBean.producto.estiba}"
 								required="true" requiredMessage="El campo Estiba es requerido" class="texto" />
 							<p class="attribute-title">Volumen</p>
+							<p class="sugerencia">En m<sup>3</sup></p>
 							<h:inputText id="volumenProducto" value="#{productoManagedBean.producto.volumen}"
 								required="true" requiredMessage="El campo Volumen es requerido" class="texto">
 								<f:convertNumber />

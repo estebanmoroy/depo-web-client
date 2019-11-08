@@ -421,6 +421,13 @@ tr, td{
     font-size: 14px;
 }
 
+.sugerencia{
+	font-size: 13px;
+	font-style: italic;
+	color: var(--gris-600);
+	padding-bottom: 6px;
+}
+
 .title-name{
     padding-top: 15px;
 }

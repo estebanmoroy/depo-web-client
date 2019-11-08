@@ -1,7 +1,8 @@
 <!DOCTYPE html
 	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 
 <h:head>
 	<title>DEPO - Productos</title>
@@ -75,7 +76,8 @@
 				</div>
 				<div class="searchbar">
 					<div class="searchbar-container">
-						<h:inputText value=" " type="search" name="searchbar" class="searchbar" placeholder="Buscar"/>
+						<h:inputText type="search" name="searchbar" class="searchbar" a:placeholder="Buscar"
+						required="false"/>
 						<span class="icono-searchbar justificar-derecha">
 							<i class="material-icons-outlined">search</i>
 						</span>
@@ -104,16 +106,16 @@
 						</h:column>
 						<h:column>
 							<h:inputHidden value="#{producto.id}" />
-							<h:commandLink action="#{productoManagedBean.verDetallesProducto()}" value=""
-								class="boton medium-emphasis" title="Ver Detalles">
+							<h:commandLink action="#{productoManagedBean.verDetallesProducto()}" immediate="true"
+								class="boton low-emphasis" title="Ver Detalles">
 								<i class="material-icons-outlined">list_alt</i>
 								<f:setPropertyActionListener target="#{productoManagedBean.producto}"
 									value="#{producto}" />
 							</h:commandLink>
-							<h:commandLink action="#{productoManagedBean.actualizarProductoStart()}"
+							<h:commandLink action="#{productoManagedBean.actualizarProductoStart()}" immediate="true"
 								class="boton low-emphasis" title="Editar">
 								<i class="material-icons-outlined">edit</i>
-								<f:setPropertyActionListener target="#{productoManagedBean.producto}"
+								<f:setPropertyActionListener target="#{productoManagedBean.producto}" immediate="true"
 									value="#{producto}" />
 							</h:commandLink>
 							<h:commandLink action="#{productoManagedBean.eliminarProductoStart()}"
