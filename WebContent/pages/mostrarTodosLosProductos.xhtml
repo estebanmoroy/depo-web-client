@@ -76,18 +76,19 @@
 				</div>
 				<div class="searchbar">
 					<div class="searchbar-container">
-						<h:inputText type="search" name="searchbar" class="searchbar" a:placeholder="Buscar"
+						<h:inputText value="#{filtro}" type="search" name="searchbar" class="searchbar" a:placeholder="Buscar"
 						required="false"/>
-						<span class="icono-searchbar justificar-derecha">
-							<i class="material-icons-outlined">search</i>
-						</span>
+						<h:commandLink action="#{productoManagedBean.obtenerListaPorNombre(filtro)}"
+							class="icono-searchbar justificar-derecha">
+							<i class="material-icons-outlined">search</i>							
+						</h:commandLink>
 					</div>
 				</div>
 				<div class="mensajes">
 					<h:messages infoClass="mensaje mensaje-normal" errorClass="mensaje mensaje-error" />
 				</div>
 				<div class="content-container">
-					<h:dataTable value="#{productoManagedBean.obtenerTodosLosProductos()}" var="producto">
+					<h:dataTable value="#{productoManagedBean.listaProductos}" var="producto">
 						<h:column>
 							<f:facet name="header">Código</f:facet>
 							#{producto.codigo}
