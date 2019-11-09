@@ -55,7 +55,7 @@ public class FamiliaManagedBean {
 	}
 	
 	public String obtenerTodasLasFamilias(){
-		setListaFamilias(familiaBean.obtenerTodos());
+		setListaFamilias(ordenarPorNombre(familiaBean.obtenerTodos()));
 		return QUEDARSE;
 	}
 	
