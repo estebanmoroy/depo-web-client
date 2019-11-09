@@ -1,5 +1,7 @@
 package com.bean;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -8,6 +10,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 
+import com.entities.Familia;
 import com.entities.Lote;
 import com.services.LoteBeanRemote;
 import com.exception.ServicesException;
@@ -28,6 +31,8 @@ public class LoteManagedBean {
 	
 	private Lote lote;
 	
+	private List<Lote> listaLotes;
+	
 	public Lote getLote() {
 		if(lote == null) {
 			lote = new Lote();
@@ -39,28 +44,35 @@ public class LoteManagedBean {
 		this.lote = lote;
 	}
 	
-	public List<Lote> obtenerTodosLosLotes(){
-		return loteBean.obtenerTodos();
+	public List<Lote> getListaLotes() {
+		if(listaLotes == null) {
+			listaLotes = loteBean.obtenerTodos();
+		}
+		return listaLotes;
+	}
+
+	public void setListaLotes(List<Lote> listaLotes) {
+		this.listaLotes = listaLotes;
 	}
 	
-	public List<Lote> obtenerListaPorCodigo(String filtro){
-		//TODO
-		return null;
+	public String obtenerTodosLosLotes(){
+		setListaLotes(ordenarPorCodigo(loteBean.obtenerTodos()));
+		return QUEDARSE;
 	}
 	
-	public List<Lote> obtenerListaPorNombre(String filtro){
-		//TODO
-		return null;
+	public String obtenerListaPorCodigo(String filtro){
+		setListaLotes(ordenarPorCodigo(loteBean.obtenerTodosPorCodigo(filtro)));
+		return QUEDARSE;
 	}
 	
-	public List<Lote> obtenerListaPorDescripcion(String filtro){
-		//TODO
-		return null;
-	}
-	
-	public Lote obtenerLotePorCodigo() {
-		//TODO
-		return lote;
+	private List<Lote> ordenarPorCodigo(List<Lote> lista){
+		Collections.sort(lista, new Comparator<Lote>() {
+			@Override
+			public int compare(Lote l1, Lote l2) {
+				return l1.getCodigo().compareTo(l2.getCodigo());
+			}
+		});
+		return lista;
 	}
 	
 	public String verDetallesLote() {
