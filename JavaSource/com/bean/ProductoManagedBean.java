@@ -1,5 +1,7 @@
 package com.bean;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -8,6 +10,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 
+import com.entities.Familia;
 import com.entities.Producto;
 import com.exception.ServicesException;
 import com.services.ProductoBeanRemote;
@@ -28,6 +31,8 @@ public class ProductoManagedBean {
 	
 	private Producto producto;
 	
+	private List<Producto> listaProductos;
+	
 	public Producto getProducto() {
 		if(producto == null) {
 			producto = new Producto();
@@ -39,28 +44,35 @@ public class ProductoManagedBean {
 		this.producto = producto;
 	}
 	
-	public List<Producto> obtenerTodosLosProductos(){
-		return productoBean.obtenerTodos();
+	public List<Producto> getListaProductos() {
+		if(listaProductos == null) {
+			listaProductos = ordenarPorNombre(productoBean.obtenerTodos());
+		}
+		return listaProductos;
+	}
+
+	public void setListaProductos(List<Producto> listaProductos) {
+		this.listaProductos = listaProductos;
 	}
 	
-	public List<Producto> obtenerListaPorCodigo(String filtro){
-		//TODO
-		return null;
+	public String obtenerTodosLosProductos(){
+		setListaProductos(ordenarPorNombre(productoBean.obtenerTodos()));
+		return QUEDARSE;
 	}
 	
-	public List<Producto> obtenerListaPorNombre(String filtro){
-		//TODO
-		return null;
+	public String obtenerListaPorNombre(String filtro){
+		setListaProductos(ordenarPorNombre(productoBean.obtenerTodosPorNombre(filtro)));
+		return QUEDARSE;
 	}
 	
-	public List<Producto> obtenerListaPorDescripcion(String filtro){
-		//TODO
-		return null;
-	}
-	
-	public Producto obtenerProductoPorCodigo() {
-		//TODO
-		return producto;
+	private List<Producto> ordenarPorNombre(List<Producto> lista){
+		Collections.sort(lista, new Comparator<Producto>() {
+			@Override
+			public int compare(Producto p1, Producto p2) {
+				return p1.getNombre().compareTo(p2.getNombre());
+			}
+		});
+		return lista;
 	}
 	
 	public String verDetallesProducto() {
@@ -126,5 +138,5 @@ public class ProductoManagedBean {
 		FacesContext context = FacesContext.getCurrentInstance();
 		return context;
 	}
-	
+
 }

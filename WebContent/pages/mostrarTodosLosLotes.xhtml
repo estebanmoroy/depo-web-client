@@ -76,17 +76,18 @@
 				</div>
 				<div class="searchbar">
 					<div class="searchbar-container">
-						<h:inputText type="search" name="searchbar" class="searchbar" a:placeholder="Buscar" />
-						<span class="icono-searchbar justificar-derecha">
-							<i class="material-icons-outlined">search</i>
-						</span>
+						<h:inputText value="#{filtro}" type="search" name="searchbar" class="searchbar" a:placeholder="Buscar" />
+						<h:commandLink action="#{loteManagedBean.obtenerListaPorCodigo(filtro)}"
+							class="icono-searchbar justificar-derecha">
+							<i class="material-icons-outlined">search</i>					
+						</h:commandLink>
 					</div>
 				</div>
 				<div class="mensajes">
 					<h:messages infoClass="mensaje mensaje-normal" errorClass="mensaje mensaje-error" />
 				</div>
 				<div class="content-container">
-					<h:dataTable value="#{loteManagedBean.obtenerTodosLosLotes()}" var="lote">
+					<h:dataTable value="#{loteManagedBean.listaLotes}" var="lote">
 						<h:column>
 							<f:facet name="header">Código</f:facet>
 							#{lote.codigo}

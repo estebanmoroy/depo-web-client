@@ -1,6 +1,8 @@
 package com.bean;
 
 import java.util.List;
+import java.util.Collections;
+import java.util.Comparator;
 
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
@@ -28,6 +30,8 @@ public class FamiliaManagedBean {
 	
 	private Familia familia;
 	
+	private List<Familia> listaFamilias;
+	
 	public Familia getFamilia() {
 		if (familia == null) {
 			familia = new Familia();
@@ -39,28 +43,35 @@ public class FamiliaManagedBean {
 		this.familia = familia;
 	}
 	
-	public List<Familia> obtenerTodasLasFamilias(){
-		return familiaBean.obtenerTodos();
+	public List<Familia> getListaFamilias() {
+		if (listaFamilias == null) {
+			listaFamilias = familiaBean.obtenerTodos();
+		}
+		return listaFamilias;
 	}
 	
-	public List<Familia> obtenerListaPorCodigo(String filtro){
-		//TODO
-		return null;
+	public void setListaFamilias(List<Familia> listaFamilias) {
+		this.listaFamilias = listaFamilias;
 	}
 	
-	public List<Familia> obtenerListaPorNombre(String filtro){
-		//TODO
-		return null;
+	public String obtenerTodasLasFamilias(){
+		setListaFamilias(ordenarPorNombre(familiaBean.obtenerTodos()));
+		return QUEDARSE;
 	}
 	
-	public List<Familia> obtenerListaPorDescripcion(String filtro){
-		//TODO
-		return null;
+	public String obtenerListaPorNombre(String filtro){
+		setListaFamilias(ordenarPorNombre(familiaBean.obtenerTodosPorNombre(filtro)));
+		return QUEDARSE;
 	}
 	
-	public Familia obtenerFamiliaPorCodigo() {
-		//TODO
-		return familia;
+	private List<Familia> ordenarPorNombre(List<Familia> lista){
+		Collections.sort(lista, new Comparator<Familia>() {
+			@Override
+			public int compare(Familia f1, Familia f2) {
+				return f1.getNombre().compareTo(f2.getNombre());
+			}
+		});
+		return lista;
 	}
 	
 	public String mostrarTodasLasFamilias() {
@@ -129,5 +140,6 @@ public class FamiliaManagedBean {
 		FacesContext context = FacesContext.getCurrentInstance();
 		return context;
 	}
+
 	
 }
