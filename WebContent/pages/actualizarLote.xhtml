@@ -83,7 +83,7 @@
                             <h:selectOneMenu id="productoLote" value="#{loteManagedBean.lote.producto}"
                                 converter="omnifaces.SelectItemsConverter" class="texto">
                                 <f:selectItem itemLabel="Elige uno" noSelectionOption="true" />
-                                <f:selectItems value="#{productoManagedBean.obtenerTodosLosProductos()}" var="producto"
+                                <f:selectItems value="#{productoManagedBean.listaProductos}" var="producto"
                                     itemValue="#{producto}" itemLabel="#{producto.nombre}" />
                             </h:selectOneMenu>
                             <p class="attribute-title">Cantidad</p>
