@@ -69,6 +69,7 @@
 				<div class="add-button-wrapper">
 					<h2>Lotes</h2>
 					<h:commandLink action="#{loteManagedBean.crearLoteStart()}"
+						rendered="#{!usuarioManagedBean.esOperador()}"
 						class="add-button high-emphasis-wide boton">
 						<i class="material-icons-outlined">add</i>
 						<span>Agregar</span>
@@ -112,11 +113,13 @@
 								<f:setPropertyActionListener target="#{loteManagedBean.lote}" value="#{lote}" />
 							</h:commandLink>
 							<h:commandLink action="#{loteManagedBean.actualizarLoteStart()}" immediate="true"
+								rendered="#{!usuarioManagedBean.esOperador()}"
 								class="boton low-emphasis" title="Editar">
 								<i class="material-icons-outlined">edit</i>
 								<f:setPropertyActionListener target="#{loteManagedBean.lote}" value="#{lote}" />
 							</h:commandLink>
 							<h:commandLink action="#{loteManagedBean.eliminarLoteStart()}" immediate="true"
+								rendered="#{!usuarioManagedBean.esOperador()}"
 								class="boton low-emphasis" title="Eliminar">
 								<i class="material-icons-outlined">delete</i>
 								<f:setPropertyActionListener target="#{loteManagedBean.lote}" value="#{lote}" />

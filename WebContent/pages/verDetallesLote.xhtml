@@ -101,12 +101,14 @@
                         <h:inputHidden value="#{loteManagedBean.lote.id}" />
                         <br />
                         <h:commandLink action="#{loteManagedBean.actualizarLoteStart()}"
+                        	rendered="#{!usuarioManagedBean.esOperador()}"
                             class="boton medium-emphasis-wide">
                             <f:setPropertyActionListener target="#{loteManagedBean.lote}" value="#{lote}" />
                             <i class="material-icons-outlined">edit</i>
                             <span class="button-text">Editar</span>
                         </h:commandLink>
                         <h:commandLink action="#{loteManagedBean.eliminarLoteStart()}"
+                        	rendered="#{!usuarioManagedBean.esOperador()}"
                             class="boton boton-rojo medium-emphasis-wide ">
                             <f:setPropertyActionListener target="#{loteManagedBean.lote}" value="#{lote}" />
                             <i class="material-icons-outlined">delete</i>

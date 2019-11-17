@@ -69,6 +69,7 @@
 				<div class="add-button-wrapper">
 					<h2>Productos</h2>
 					<h:commandLink action="#{productoManagedBean.crearProductoStart()}"
+						rendered="#{!usuarioManagedBean.esOperador()}"
 						class="add-button high-emphasis-wide boton">
 						<i class="material-icons-outlined">add</i>
 						<span>Agregar</span>
@@ -114,12 +115,14 @@
 									value="#{producto}" />
 							</h:commandLink>
 							<h:commandLink action="#{productoManagedBean.actualizarProductoStart()}" immediate="true"
+								rendered="#{!usuarioManagedBean.esOperador()}"
 								class="boton low-emphasis" title="Editar">
 								<i class="material-icons-outlined">edit</i>
 								<f:setPropertyActionListener target="#{productoManagedBean.producto}" immediate="true"
 									value="#{producto}" />
 							</h:commandLink>
 							<h:commandLink action="#{productoManagedBean.eliminarProductoStart()}"
+								rendered="#{!usuarioManagedBean.esOperador()}"
 								class="boton low-emphasis" title="Eliminar">
 								<i class="material-icons-outlined">delete</i>
 								<f:setPropertyActionListener target="#{productoManagedBean.producto}"
