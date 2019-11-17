@@ -115,12 +115,14 @@
 						<h:inputHidden value="#{productoManagedBean.producto.id}" />
 						<br />
 						<h:commandLink action="#{productoManagedBean.actualizarProductoStart()}"
+							rendered="#{!usuarioManagedBean.esOperador()}"
 							class="boton medium-emphasis-wide">
 							<f:setPropertyActionListener target="#{productoManagedBean.producto}" value="#{producto}" />
 							<i class="material-icons-outlined">edit</i>
 							<span class="button-text">Editar</span>
 						</h:commandLink>
 						<h:commandLink action="#{productoManagedBean.eliminarProductoStart()}"
+							rendered="#{!usuarioManagedBean.esOperador()}"
 							class="boton boton-rojo medium-emphasis-wide ">
 							<f:setPropertyActionListener target="#{productoManagedBean.producto}" value="#{producto}" />
 							<i class="material-icons-outlined">delete</i>
