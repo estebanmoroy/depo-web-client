@@ -21,7 +21,8 @@ public class UsuarioManagedBean {
 	
 	private String nombreAcceso;
 	private String contrasena;
-	private Usuario usuario;
+	
+	private Usuario usuarioLogueado;
 	
 	@EJB
 	private UsuarioBeanRemote usuarioBean;
@@ -38,15 +39,23 @@ public class UsuarioManagedBean {
 		return QUEDARSE;
 	}
 	
-	public Usuario getUsuario() {
+	public boolean esOperador() {
+		if (getUsuarioLogueado().getPerfil().getId() == 3){
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
+	public Usuario getUsuarioLogueado() {
 		try {
 			if (usuarioBean.autenticar(nombreAcceso, contrasena)) {
-				usuario = usuarioBean.getObjetoUsuario(nombreAcceso, contrasena);
+				usuarioLogueado = usuarioBean.getObjetoUsuario(nombreAcceso, contrasena);
 			}
 		} catch (ServicesException e) {
 			enviarMensajeDeErrorAlUsuario(e.getMessage());
 		}
-		return usuario;
+		return usuarioLogueado;
 	}
 
 	public String logOut() {
