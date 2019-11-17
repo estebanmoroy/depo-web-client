@@ -111,7 +111,7 @@
 							<h:selectOneMenu id="familia" value="#{productoManagedBean.producto.familia}"
 								converter="omnifaces.SelectItemsConverter" class="texto">
 								<f:selectItem itemLabel="Elige una" noSelectionOption="true" />
-								<f:selectItems value="#{familiaManagedBean.obtenerTodasLasFamilias()}" var="familia"
+								<f:selectItems value="#{familiaManagedBean.listaFamilias}" var="familia"
 									itemValue="#{familia}" itemLabel="#{familia.nombre}" />
 							</h:selectOneMenu>
 							<br />
