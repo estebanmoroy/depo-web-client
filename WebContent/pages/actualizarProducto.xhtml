@@ -81,7 +81,10 @@
 							<p class="attribute-title">Código</p>
 							<p class="attribute-value">#{productoManagedBean.producto.codigo}</p>
 							<p class="attribute-title">Stock Total</p>
-							<p class="attribute-value">#{productoManagedBean.producto.stockTotal}</p>
+							<h:inputText id="stockMinimoProducto" value="#{productoManagedBean.producto.stockTotal}"
+								required="true" requiredMessage="El campo Stock Total es requerido" class="texto">
+								<f:convertNumber />
+							</h:inputText>
 							<p class="attribute-title">Stock Mínimo</p>
 							<h:inputText id="stockMinimoProducto" value="#{productoManagedBean.producto.stockMinimo}"
 								required="true" requiredMessage="El campo Stock Mínimo es requerido" class="texto">
