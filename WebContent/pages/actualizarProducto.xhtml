@@ -73,11 +73,11 @@
 					<div class="card-container">
 						<div class="card-form-container">
 							<h:inputHidden value="#{productoManagedBean.producto.id}" />
+							<h:inputHidden value="#{productoManagedBean.producto.nombre}" />
 							<h:inputHidden value="#{productoManagedBean.producto.codigo}" />
 							<h:inputHidden value="#{productoManagedBean.producto.stockTotal}" />
 							<p class="attribute-title">Nombre</p>
-							<h:inputText id="nombreProducto" value="#{productoManagedBean.producto.nombre}"
-								required="true" requiredMessage="El campo nombre es requerido" class="texto" />
+							<p class="attribute-value">#{productoManagedBean.producto.nombre}</p>
 							<p class="attribute-title">Código</p>
 							<p class="attribute-value">#{productoManagedBean.producto.codigo}</p>
 							<p class="attribute-title">Stock Total</p>
