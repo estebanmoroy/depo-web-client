@@ -32,26 +32,24 @@ public class FamiliaManagedBean {
 	
 	private List<Familia> listaFamilias;
 	
-	public Familia getFamilia() {
-		if (familia == null) {
-			familia = new Familia();
+	private Familia incompatibilidadSeleccionada;
+	private String listaIncompatibilidades;
+	
+	public String agregarIncompatibilidad() {
+		if (!listaIncompatibilidades.contains("-")) {				
+			listaIncompatibilidades = incompatibilidadSeleccionada.getCodigo();
+		}else {				
+			if(
+				//Cuenta la cantidad de ocurrencias  del caracter "-" que separa los códigos
+				//Si el número supera 5 envía un mensaje de error al usuario
+				(listaIncompatibilidades.length() - listaIncompatibilidades.replace("-", "").length()) < 5
+			) {
+				listaIncompatibilidades = listaIncompatibilidades + " - " + incompatibilidadSeleccionada.getCodigo();
+			}else {
+				enviarMensajeDeErrorAlUsuario("La cantidad de incompatibilidades no puede ser mayor a cinco");
+			}	
 		}
-		return familia;
-	}
-	
-	public void setFamilia(Familia familia) {
-		this.familia = familia;
-	}
-	
-	public List<Familia> getListaFamilias() {
-		if (listaFamilias == null) {
-			listaFamilias = familiaBean.obtenerTodos();
-		}
-		return listaFamilias;
-	}
-	
-	public void setListaFamilias(List<Familia> listaFamilias) {
-		this.listaFamilias = listaFamilias;
+		return listaIncompatibilidades;
 	}
 	
 	public String obtenerTodasLasFamilias(){
@@ -139,6 +137,47 @@ public class FamiliaManagedBean {
 	private FacesContext getContext() {
 		FacesContext context = FacesContext.getCurrentInstance();
 		return context;
+	}
+
+	public Familia getFamilia() {
+		if (familia == null) {
+			familia = new Familia();
+		}
+		return familia;
+	}
+	
+	public void setFamilia(Familia familia) {
+		this.familia = familia;
+	}
+	
+	public List<Familia> getListaFamilias() {
+		if (listaFamilias == null) {
+			listaFamilias = familiaBean.obtenerTodos();
+		}
+		return listaFamilias;
+	}
+	
+	public void setListaFamilias(List<Familia> listaFamilias) {
+		this.listaFamilias = listaFamilias;
+	}
+	
+	public Familia getIncompatibilidadSeleccionada() {
+		return incompatibilidadSeleccionada;
+	}
+
+	public void setIncompatibilidadSeleccionada(Familia incompatibilidadSeleccionada) {
+		this.incompatibilidadSeleccionada = incompatibilidadSeleccionada;
+	}
+
+	public String getListaIncompatibilidades() {
+		if (listaIncompatibilidades == null) {
+			listaIncompatibilidades = "Ninguna";
+		}
+		return listaIncompatibilidades;
+	}
+
+	public void setListaIncompatibilidades(String listaIncompatibilidades) {
+		this.listaIncompatibilidades = listaIncompatibilidades;
 	}
 
 	

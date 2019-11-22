@@ -83,8 +83,17 @@
 							<h:inputText id="descripcionFamilia" value="#{familiaManagedBean.familia.descripcion}"
 								required="true" requiredMessage="El campo descripcion es requerido" class="texto" />
 							<p class="attribute-title">Incompatibilidades</p>
-							<h:inputText id="incompatibleFamilia" value="#{familiaManagedBean.familia.incompatible}"
-								class="texto" />
+							<h:outputText id="incompatibleFamilia" value="#{familiaManagedBean.agregarIncompatibilidad()}" />
+							<h:selectOneMenu id="comboBoxIncompatibilidades" value = "#{familiaManagedBean.incompatibilidadSeleccionada}"
+								converter="omnifaces.SelectItemsConverter" class="texto">
+								<f:selectItem itemLabel="Elige una" noSelectionOption="true" />
+								<f:selectItems value="#{familiaManagedBean.listaFamilias}" var="familia"
+									itemValue="#{familia}" itemLabel="#{familia.nombre}" />
+							</h:selectOneMenu>
+							<h:commandLink title="Agregar Incompatibilidad" class="boton low-emphasis">
+								<i class="material-icons-outlined">add</i>
+								<f:ajax event="click" execute="comboBoxIncompatibilidades" render="incompatibleFamilia"/>
+							</h:commandLink>
 							<br />
 							<br />
 							<h:commandLink action="#{familiaManagedBean.crearFamiliaEnd()}"
@@ -102,5 +111,9 @@
 		</div>
 	</h:form>
 </h:body>
+
+<script>
+	
+</script>
 
 </html>
