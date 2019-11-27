@@ -73,15 +73,18 @@
 					<div class="card-container">
 						<div class="card-form-container">
 							<h:inputHidden value="#{productoManagedBean.producto.id}" />
+							<h:inputHidden value="#{productoManagedBean.producto.nombre}" />
 							<h:inputHidden value="#{productoManagedBean.producto.codigo}" />
 							<h:inputHidden value="#{productoManagedBean.producto.stockTotal}" />
 							<p class="attribute-title">Nombre</p>
-							<h:inputText id="nombreProducto" value="#{productoManagedBean.producto.nombre}"
-								required="true" requiredMessage="El campo nombre es requerido" class="texto" />
+							<p class="attribute-value">#{productoManagedBean.producto.nombre}</p>
 							<p class="attribute-title">Código</p>
 							<p class="attribute-value">#{productoManagedBean.producto.codigo}</p>
 							<p class="attribute-title">Stock Total</p>
-							<p class="attribute-value">#{productoManagedBean.producto.stockTotal}</p>
+							<h:inputText id="stockTotalProducto" value="#{productoManagedBean.producto.stockTotal}"
+								required="true" requiredMessage="El campo Stock Total es requerido" class="texto">
+								<f:convertNumber />
+							</h:inputText>
 							<p class="attribute-title">Stock Mínimo</p>
 							<h:inputText id="stockMinimoProducto" value="#{productoManagedBean.producto.stockMinimo}"
 								required="true" requiredMessage="El campo Stock Mínimo es requerido" class="texto">
@@ -111,7 +114,7 @@
 							<h:selectOneMenu id="familia" value="#{productoManagedBean.producto.familia}"
 								converter="omnifaces.SelectItemsConverter" class="texto">
 								<f:selectItem itemLabel="Elige una" noSelectionOption="true" />
-								<f:selectItems value="#{familiaManagedBean.obtenerTodasLasFamilias()}" var="familia"
+								<f:selectItems value="#{familiaManagedBean.listaFamilias}" var="familia"
 									itemValue="#{familia}" itemLabel="#{familia.nombre}" />
 							</h:selectOneMenu>
 							<br />
